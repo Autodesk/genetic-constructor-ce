@@ -4,7 +4,6 @@ import { loadUser, loadStarred } from '../actions';
 import User from '../components/User';
 import Repo from '../components/Repo';
 import List from '../components/List';
-import zip from 'lodash/array/zip';
 
 function loadData(props) {
   const { login } = props;
@@ -48,12 +47,21 @@ class UserPage extends Component {
     }
 
     const { starredRepos, starredRepoOwners, starredPagination } = this.props;
+
+    console.log(starredRepoOwners);
+
+    //FIXME - replicate lodash zip(starredRepos, starredRepoOwners)
+    let items = starredRepos.reduce((zipped, next, index) => {
+      zipped.push([next, starredRepoOwners[index]]);
+      return zipped;
+    }, []);
+
     return (
       <div>
         <User user={user} />
         <hr />
         <List renderItem={this.renderRepo}
-              items={zip(starredRepos, starredRepoOwners)}
+              items={items}
               onLoadMoreClick={this.handleLoadMoreClick}
               loadingLabel={`Loading ${login}’s starred...`}
               {...starredPagination} />
