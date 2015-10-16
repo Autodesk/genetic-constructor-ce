@@ -1,4 +1,5 @@
 import * as ActionTypes from '../actions';
+import merge from 'lodash/object/merge';
 import paginate from './paginate';
 import { routerStateReducer as router } from 'redux-router';
 import { combineReducers } from 'redux';
@@ -6,7 +7,7 @@ import { combineReducers } from 'redux';
 // Updates an entity cache in response to any action with response.entities.
 function entities(state = { users: {}, repos: {} }, action) {
   if (action.response && action.response.entities) {
-    return Object.assign({}, state, action.response.entities);
+    return merge({}, state, action.response.entities);
   }
 
   return state;
