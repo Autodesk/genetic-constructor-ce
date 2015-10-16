@@ -1,0 +1,28 @@
+{
+  "name": "genome-designer",
+  "version": "0.0.0",
+  "description": "Genome Designer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autodesk-bionano/genome-designer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/autodesk-bionano/genome-designer/issues"
+  },
+  "homepage": "https://github.com/autodesk-bionano/genome-designer#readme",
+  "dependencies": {
+    "isomorphic-fetch": "^2.1.1",
+    "react-dnd": "^2.0.0",
+    "react-redux": "^3.1.0",
+    "redux": "^3.0.2"
+  },
+  "devDependencies": {
+    "redux-devtools": "^2.1.5"
+  }
+}
