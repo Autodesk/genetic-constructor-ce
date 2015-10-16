@@ -1,10 +1,15 @@
 # egf-collaboration
 
-add Routing
+### installation
+
+`npm install`
+
+`npm run start`
+
+### Todos
 
 use constants/ActionTypes
-Actions should only return state payloads not do things
-Separate Actions + Action Creators
+Actions should only return state payloads not do things. ActionCreators are (always?) pure functions.
 
 add Promises middleware for actions. remove redux-thunk?
 

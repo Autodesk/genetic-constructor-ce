@@ -7,16 +7,24 @@ import { resetErrorMessage } from '../actions';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDismissClick = this.handleDismissClick.bind(this);
   }
 
-  handleDismissClick(e) {
+  static propTypes = {
+    // Injected by React Redux
+    errorMessage: PropTypes.string,
+    resetErrorMessage: PropTypes.func.isRequired,
+    pushState: PropTypes.func.isRequired,
+    inputValue: PropTypes.string.isRequired,
+    // Injected by React Router
+    children: PropTypes.node
+  }
+
+  handleDismissClick = (e) => {
     this.props.resetErrorMessage();
     e.preventDefault();
   }
 
-  handleChange(nextValue) {
+  handleChange = (nextValue) => {
     this.props.pushState(null, `/${nextValue}`);
   }
 
@@ -51,16 +59,6 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  // Injected by React Redux
-  errorMessage: PropTypes.string,
-  resetErrorMessage: PropTypes.func.isRequired,
-  pushState: PropTypes.func.isRequired,
-  inputValue: PropTypes.string.isRequired,
-  // Injected by React Router
-  children: PropTypes.node
-};
 
 function mapStateToProps(state) {
   return {

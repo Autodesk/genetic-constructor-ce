@@ -14,8 +14,16 @@ function loadData(props) {
 class UserPage extends Component {
   constructor(props) {
     super(props);
-    this.renderRepo = this.renderRepo.bind(this);
-    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
+  }
+
+  static propTypes = {
+    login: PropTypes.string.isRequired,
+    user: PropTypes.object,
+    starredPagination: PropTypes.object,
+    starredRepos: PropTypes.array.isRequired,
+    starredRepoOwners: PropTypes.array.isRequired,
+    loadUser: PropTypes.func.isRequired,
+    loadStarred: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -28,11 +36,11 @@ class UserPage extends Component {
     }
   }
 
-  handleLoadMoreClick() {
+  handleLoadMoreClick = () => {
     this.props.loadStarred(this.props.login, true);
   }
 
-  renderRepo([repo, owner]) {
+  renderRepo = ([repo, owner]) => {
     return (
       <Repo repo={repo}
             owner={owner}
@@ -48,9 +56,9 @@ class UserPage extends Component {
 
     const { starredRepos, starredRepoOwners, starredPagination } = this.props;
 
+    //e.g. demonstration of sourcemapping
     console.log(starredRepoOwners);
 
-    //FIXME - replicate lodash zip(starredRepos, starredRepoOwners)
     let items = starredRepos.reduce((zipped, next, index) => {
       zipped.push([next, starredRepoOwners[index]]);
       return zipped;
@@ -69,16 +77,6 @@ class UserPage extends Component {
     );
   }
 }
-
-UserPage.propTypes = {
-  login: PropTypes.string.isRequired,
-  user: PropTypes.object,
-  starredPagination: PropTypes.object,
-  starredRepos: PropTypes.array.isRequired,
-  starredRepoOwners: PropTypes.array.isRequired,
-  loadUser: PropTypes.func.isRequired,
-  loadStarred: PropTypes.func.isRequired
-};
 
 function mapStateToProps(state) {
   const { login } = state.router.params;

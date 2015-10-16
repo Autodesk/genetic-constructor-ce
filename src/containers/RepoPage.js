@@ -14,8 +14,17 @@ function loadData(props) {
 class RepoPage extends Component {
   constructor(props) {
     super(props);
-    this.renderUser = this.renderUser.bind(this);
-    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
+  }
+
+  static propTypes = {
+    repo: PropTypes.object,
+    fullName: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    owner: PropTypes.object,
+    stargazers: PropTypes.array.isRequired,
+    stargazersPagination: PropTypes.object,
+    loadRepo: PropTypes.func.isRequired,
+    loadStargazers: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -28,11 +37,11 @@ class RepoPage extends Component {
     }
   }
 
-  handleLoadMoreClick() {
+  handleLoadMoreClick = () => {
     this.props.loadStargazers(this.props.fullName, true);
   }
 
-  renderUser(user) {
+  renderUser = (user) => {
     return (
       <User user={user}
             key={user.login} />
@@ -60,17 +69,6 @@ class RepoPage extends Component {
     );
   }
 }
-
-RepoPage.propTypes = {
-  repo: PropTypes.object,
-  fullName: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  owner: PropTypes.object,
-  stargazers: PropTypes.array.isRequired,
-  stargazersPagination: PropTypes.object,
-  loadRepo: PropTypes.func.isRequired,
-  loadStargazers: PropTypes.func.isRequired
-};
 
 function mapStateToProps(state) {
   const { login, name } = state.router.params;
