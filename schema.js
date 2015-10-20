@@ -16,20 +16,20 @@ import {
 let PersonType = new GraphQLObjectType({
   name: 'Person',
   description: '',
-  fields: () => {
+  fields: () => ({
     lastName: {
       type: GraphQLString,
     },
     firstName: {
       type: GraphQLString,
     }
-  }
+  })
 });
 
 let MetadataType = new GraphQLObjectType({
   name: 'Metadata',
   description: '',
-  fields: () => {
+  fields: () => ({
     authors: {
       type: new GraphQLList(PersonType)
     },
@@ -42,13 +42,13 @@ let MetadataType = new GraphQLObjectType({
     createTime: {
       type: GraphQLString
     }
-  }
+  })
 });
 
 let HistoryType = new GraphQLObjectType({
   name: 'History',
   description: '',
-  fields: () => {
+  fields: () => ({
     timePoints: {
       type: new GraphQLList(GraphQLString),
       description: 'the time of each item in the history'
@@ -57,59 +57,59 @@ let HistoryType = new GraphQLObjectType({
       type: new GraphQLList(GraphQLString),
       description: 'the ids of items at each time point'
     }
-  }
+  })
 });
 
 let BlockType = new GraphQLObjectType({
   name: 'Block',
   description: 'A subsequence of a DNA construct or the entire construct itself',
-  fields: () => {
+  fields: () => ({
     id: {
       type: GraphQLString,
-      description: 'universally unique id',
+      description: 'universally unique id'
     },
     meta: {
       type: MetadataType,
-      description: 'More information about this block',
+      description: 'More information about this block'
     },
     history: {
       type: HistoryType,
-      description: 'The history of this block',
+      description: 'The history of this block'
     },
     blocks: {
       type: new GraphQLList(BlockType),
-      description: 'list of other blocks inside this block',
+      description: 'list of other blocks inside this block'
     }
-  }
+  })
 });
 
 let ProjectType = new GraphQLObjectType({
   name: 'Project',
   description: '',
-  fields: () => {
+  fields: () => ({
     id: {
       type: GraphQLString,
-      description: 'universally unique id',
+      description: 'universally unique id'
     },
     meta: {
       type: MetadataType,
-      description: 'More information about this project',
+      description: 'More information about this project'
     },
     history: {
       type: HistoryType,
-      description: 'The history of this project',
+      description: 'The history of this project'
     },
     constructs: {
       type: new GraphQLList(BlockType),
-      description: 'list of constructs inside this project',
+      description: 'list of constructs inside this project'
     }
-  }
+  })
 });
 
 let UserType = new GraphQLObjectType({
   name: 'User',
   description: '',
-  fields: () => {
+  fields: () => ({
     id: {
       type: GraphQLString,
       description: 'universally unique id',
@@ -118,7 +118,7 @@ let UserType = new GraphQLObjectType({
       type: new GraphQLList(ProjectType),
       description: 'list of projects belonging to this user',
     }
-  }
+  })
 }); 
 
 function updateUser(args) {
