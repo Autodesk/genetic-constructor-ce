@@ -101,10 +101,29 @@ let ProjectType = new GraphQLObjectType({
     },
     constructs: {
       type: new GraphQLList(BlockType),
-      description: 'list of other blocks inside this project',
+      description: 'list of constructs inside this project',
     }
   }
 });
+
+let UserType = new GraphQLObjectType({
+  name: 'User',
+  description: '',
+  fields: () => {
+    id: {
+      type: GraphQLString,
+      description: 'universally unique id',
+    },
+    projects: {
+      type: new GraphQLList(ProjectType),
+      description: 'list of projects belonging to this user',
+    }
+  }
+}); 
+
+function updateUser(args) {
+  console.log("update user");
+}
 
 let RootQueryType = new GraphQLObjectType({
   name: 'GET',
@@ -129,11 +148,10 @@ let RootMutationType = new GraphQLObjectType({
   name: 'UPDATE',
   fields: {
     user: {
-      type: GraphQLInt,
-      description: 'Updates the count',
-      resolve: function() {
-        console.log("Resolve");
-        return 1;
+      type: UserType,
+      resolve: (root, {id,name}) => {
+        console.log(id + " " + name);
+        return 10;
       }
     }
   }

@@ -11,17 +11,16 @@ let PORT = 3000;
 app.use(bodyParser.text({ type: 'application/graphql' }));
 
 app.post('/graphql', (req, res) => {
-  // execute GraphQL!
-  //console.log(req.body);
+
+  // execute GraphQL
   graphql(schema, req.body)
-  .then((result) => {  	
-    res.send(JSON.stringify(result, null, 2));
-  });
+      .then((result) => {  	
+        res.send(JSON.stringify(result, null, 2));
+      });
 });
 
 let server = app.listen(PORT, function () {
-  var host = server.address().address;
   var port = server.address().port;
 
-  console.log('GraphQL listening at http://%s:%s', host, port);
+  console.log('GraphQL listening at http://localhost:%s', port);
 });
