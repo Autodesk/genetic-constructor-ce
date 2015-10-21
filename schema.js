@@ -91,7 +91,7 @@ let FeatureType = new GraphQLObjectType({
 
 
 let PartType = new GraphQLObjectType({
-  name: 'Block',
+  name: 'Part',
   description: 'A functional piece of DNA',
   fields: () => ({
     id: {
