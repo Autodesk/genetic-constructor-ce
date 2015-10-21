@@ -84,7 +84,7 @@ let FeatureType = new GraphQLObjectType({
       type: GraphQLInt
     },
     description: {
-      type: new GraphQLString
+      type: GraphQLString
     }
   })
 });
