@@ -60,6 +60,66 @@ let HistoryType = new GraphQLObjectType({
   })
 });
 
+let TagType = new GraphQLObjectType({
+  name: 'Tag',
+  description: '',
+  fields: () => ({
+    key: {
+      type: GraphQLString
+    },
+    value: {
+      type: GraphQLString
+    }
+  })
+});
+
+let FeatureType = new GraphQLObjectType({
+  name: 'Feature',
+  description: 'A functional piece of DNA',
+  fields: () => ({
+    start: {
+      type: GraphQLInt
+    },
+    end: {
+      type: GraphQLInt
+    },
+    description: {
+      type: new GraphQLString
+    }
+  })
+});
+
+
+let PartType = new GraphQLObjectType({
+  name: 'Block',
+  description: 'A functional piece of DNA',
+  fields: () => ({
+    id: {
+      type: GraphQLString,
+      description: 'universally unique id'
+    },
+    sequence: {
+      type: GraphQLString,
+      description: 'URL'
+    },
+    meta: {
+      type: MetadataType,
+      description: 'More information about this block'
+    },
+    tags: {
+      type: new GraphQLList(TagType)
+    },
+    history: {
+      type: HistoryType,
+      description: 'The history of this part'
+    },
+    features: {
+      type: new GraphQLList(FeatureType),
+      description: 'list of sequence annotations'
+    }
+  })
+});
+
 let BlockType = new GraphQLObjectType({
   name: 'Block',
   description: 'A subsequence of a DNA construct or the entire construct itself',
@@ -72,6 +132,9 @@ let BlockType = new GraphQLObjectType({
       type: MetadataType,
       description: 'More information about this block'
     },
+    tags: {
+      type: new GraphQLList(TagType)
+    },
     history: {
       type: HistoryType,
       description: 'The history of this block'
@@ -79,6 +142,10 @@ let BlockType = new GraphQLObjectType({
     blocks: {
       type: new GraphQLList(BlockType),
       description: 'list of other blocks inside this block'
+    },
+    parts: {
+       type: new GraphQLList(PartType),
+       description: 'list of parts inside this block'
     }
   })
 });
@@ -94,6 +161,9 @@ let ProjectType = new GraphQLObjectType({
     meta: {
       type: MetadataType,
       description: 'More information about this project'
+    },
+    tags: {
+      type: new GraphQLList(TagType)
     },
     history: {
       type: HistoryType,
