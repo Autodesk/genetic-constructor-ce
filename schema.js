@@ -11,7 +11,12 @@ import {
 } from './node_modules/graphql/type';
 
 
-//curl -XPOST -H 'Content-Type:application/graphql'  -d 'query Get { user(name: "david") { id } }' http://localhost:3000/graphql
+//curl -XPOST -H 'Content-Type:application/graphql'  -d 'query GET { user(name: "david") { id } }' http://localhost:3000/graphql
+
+//curl -XPOST -H 'Content-Type:appication/graphql'  -d 'query GET { project(name: "A") { id, constructs {id} } }' http://localhost:3000/graphql
+
+//curl -XPOST -H 'Content-Type:appication/graphql'  -d 'query GET { project(name: "david") { id, constructs {id,blocks{id}} } }' http://localhost:3000/graphql
+
 
 function executeCommand(command) {
   var defer = Q.defer();
@@ -227,7 +232,7 @@ function getProject(id) {
       {
         id: "block2",
         meta: {},
-        tags: [{type: coding}],
+        tags: [{type: "coding"}],
         blocks: [
           {
             id: "block3",
@@ -264,6 +269,11 @@ let RootQueryType = new GraphQLObjectType({
     },
     project: {
       type: ProjectType,
+      args: {
+        name: {
+          type: GraphQLString
+        }
+      },
       resolve: (root, {id}) => {
         return getProject(id);
       }
