@@ -11,7 +11,21 @@ import {
 } from './node_modules/graphql/type';
 
 
-//curl -XPOST -H 'Content-Type:application/graphql'  -d 'query Get { user(name: "david") { name, caught, created } }' http://localhost:3000/graphql
+//curl -XPOST -H 'Content-Type:application/graphql'  -d 'query Get { user(name: "david") { id } }' http://localhost:3000/graphql
+
+function executeCommand(command) {
+  var defer = Q.defer();
+  var exec = require('child_process').exec;
+
+      exec(command, null, function(error, stdout, stderr) {
+          console.log('ready ' + command);
+          return error 
+              ? defer.reject(stderr + new Error(error.stack || error))
+              : defer.resolve(stdout);
+      })
+
+      return defer.promise;
+}
 
 let PersonType = new GraphQLObjectType({
   name: 'Person',
@@ -195,6 +209,44 @@ function updateUser(args) {
   console.log("update user");
 }
 
+function getProject(id) {
+  return {
+    id: "projA",
+    meta: {
+      authors: ["George"],
+      name: "A",
+      description: "Test Project"
+    },
+    constructs: [
+      {
+        id: "block1",
+        meta: {},
+        tags: [],
+        parts: ["pTet"]
+      },
+      {
+        id: "block2",
+        meta: {},
+        tags: [{type: coding}],
+        blocks: [
+          {
+            id: "block3",
+            meta: {},
+            tags: [],
+            parts: ["RBS1"]
+          },
+          {
+            id: "block4",
+            meta: {},
+            tags: [],
+            parts: ["GFP"]
+          }
+        ]
+      }
+    ]
+  };
+}
+
 let RootQueryType = new GraphQLObjectType({
   name: 'GET',
   fields: {
@@ -202,13 +254,18 @@ let RootQueryType = new GraphQLObjectType({
       type: UserType,
       args: {
         name: {
-          description: 'The name of the user',
-          type: new GraphQLNonNull(GraphQLString)
+          type: GraphQLString
         }
       },
-      resolve: (root, {id,name}) => {
-        console.log(id + " " + name);
+      resolve: (root, {name}) => {
+        console.log(name);
         return 10;
+      }
+    },
+    project: {
+      type: ProjectType,
+      resolve: (root, {id}) => {
+        return getProject(id);
       }
     }
   }
