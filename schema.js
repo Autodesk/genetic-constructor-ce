@@ -13,9 +13,9 @@ import {
 
 //curl -XPOST -H 'Content-Type:application/graphql'  -d 'query GET { user(name: "david") { id } }' http://localhost:3000/graphql
 
-//curl -XPOST -H 'Content-Type:appication/graphql'  -d 'query GET { project(name: "A") { id, constructs {id} } }' http://localhost:3000/graphql
+//curl -XPOST -H 'Content-Type:application/graphql'  -d 'query GET { project(name: "A") { id, constructs {id} } }' http://localhost:3000/graphql
 
-//curl -XPOST -H 'Content-Type:appication/graphql'  -d 'query GET { project(name: "david") { id, constructs {id,blocks{id}} } }' http://localhost:3000/graphql
+//curl -XPOST -H 'Content-Type:application/graphql'  -d 'query GET { project(name: "david") { id, constructs {id,blocks{id}} } }' http://localhost:3000/graphql
 
 
 function executeCommand(command) {
