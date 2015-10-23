@@ -32,6 +32,41 @@ function executeCommand(command) {
       return defer.promise;
 }
 
+//table lookup
+var GraphQLLookupTable = {
+  'int': () => ({ return GraphQLInt; }),
+  'string': () => ({ return GraphQLString; }),
+  'string': () => ({ return Person; }),
+  'string': () => ({ return Person; }),
+  'string': () => ({ return Person; }),
+  'string': () => ({ return Person; }),
+  'Array<uuid>': () => ({ return new GraphQLList(GraphQLString); }),
+  'Array<uuid>': () => ({ return new GraphQLList(GraphQLString); }),
+  'Array<uuid>': () => ({ return new GraphQLList(GraphQLString); }),
+  'Array<uuid>': () => ({ return new GraphQLList(GraphQLString); }),
+}
+
+function convertSchemaToGraphQL(json) {
+  var newJson = {};
+  var val;
+
+  for (var key in json) {
+    val = json[key];
+
+    if (typeof(val)==='object') { //recursive case
+      newJson[key] = convertSchemaToGraphQL(val);
+    } else {  //base case
+      if (key==='type' && GraphQLLookupTable.hasOwnProperty(val)) {
+        newJson[key] = GraphQLLookupTable[val].call();
+      } else {
+        newJson[key] = val;
+      }      
+    }
+  }
+
+  return newJson;
+}
+
 let PersonType = new GraphQLObjectType({
   name: 'Person',
   description: '',
@@ -55,6 +90,9 @@ let MetadataType = new GraphQLObjectType({
     name: {
       type: GraphQLString,
     },
+    parent: {
+      type: GraphQLString
+    }
     description: {
       type: GraphQLString,
     },
@@ -158,13 +196,39 @@ let BlockType = new GraphQLObjectType({
       type: HistoryType,
       description: 'The history of this block'
     },
-    blocks: {
+    blocksOrParts: {
       type: new GraphQLList(BlockType),
       description: 'list of other blocks inside this block'
+    }
+  })
+});
+
+let BlockOrPartType = new GraphQLObjectType({
+  name: 'Part',
+  description: 'A functional piece of DNA',
+  fields: () => ({
+    id: {
+      type: GraphQLString,
+      description: 'universally unique id'
     },
-    parts: {
-       type: new GraphQLList(PartType),
-       description: 'list of parts inside this block'
+    sequence: {
+      type: GraphQLString,
+      description: 'URL'
+    },
+    meta: {
+      type: MetadataType,
+      description: 'More information about this block'
+    },
+    tags: {
+      type: new GraphQLList(TagType)
+    },
+    history: {
+      type: HistoryType,
+      description: 'The history of this part'
+    },
+    features: {
+      type: new GraphQLList(FeatureType),
+      description: 'list of sequence annotations'
     }
   })
 });
