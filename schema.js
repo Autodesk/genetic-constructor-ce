@@ -34,17 +34,19 @@ function executeCommand(command) {
 
 //table lookup
 var GraphQLLookupTable = {
-  'int': () => ({ return GraphQLInt; }),
-  'string': () => ({ return GraphQLString; }),
-  'string': () => ({ return Person; }),
-  'string': () => ({ return Person; }),
-  'string': () => ({ return Person; }),
-  'string': () => ({ return Person; }),
-  'Array<uuid>': () => ({ return new GraphQLList(GraphQLString); }),
-  'Array<uuid>': () => ({ return new GraphQLList(GraphQLString); }),
-  'Array<uuid>': () => ({ return new GraphQLList(GraphQLString); }),
-  'Array<uuid>': () => ({ return new GraphQLList(GraphQLString); }),
+  'int': () => GraphQLInt,
+  'string': () => GraphQLString,
+  'Array<uuid>': () => new GraphQLList(GraphQLString)
 }
+
+var person = {
+  lastName: {
+    type: 'string',
+  },
+  firstName: {
+    type: 'string',
+  }
+};
 
 function convertSchemaToGraphQL(json) {
   var newJson = {};
@@ -60,12 +62,14 @@ function convertSchemaToGraphQL(json) {
         newJson[key] = GraphQLLookupTable[val].call();
       } else {
         newJson[key] = val;
-      }      
+      }
     }
   }
 
   return newJson;
 }
+
+console.log(convertSchemaToGraphQL(person));
 
 let PersonType = new GraphQLObjectType({
   name: 'Person',
@@ -92,7 +96,7 @@ let MetadataType = new GraphQLObjectType({
     },
     parent: {
       type: GraphQLString
-    }
+    },
     description: {
       type: GraphQLString,
     },
