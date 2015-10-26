@@ -33,13 +33,18 @@ function executeCommand(command) {
 }
 
 //table lookup
-var GraphQLLookupTable = {
+var GraphQLLookupTablePrim = {
   'int': () => GraphQLInt,
+  'float': () => GraphQLFloat,
   'string': () => GraphQLString,
-  'Array<uuid>': () => new GraphQLList(GraphQLString)
-}
+  'uuid': () => GraphQLString
+};
 
-var person = {
+var GraphQLLookupTableUser = {
+
+};
+
+global['person'] = {
   lastName: {
     type: 'string',
   },
@@ -48,41 +53,6 @@ var person = {
   }
 };
 
-function convertSchemaToGraphQL(json) {
-  var newJson = {};
-  var val;
-
-  for (var key in json) {
-    val = json[key];
-
-    if (typeof(val)==='object') { //recursive case
-      newJson[key] = convertSchemaToGraphQL(val);
-    } else {  //base case
-      if (key==='type' && GraphQLLookupTable.hasOwnProperty(val)) {
-        newJson[key] = GraphQLLookupTable[val].call();
-      } else {
-        newJson[key] = val;
-      }
-    }
-  }
-
-  return newJson;
-}
-
-console.log(convertSchemaToGraphQL(person));
-
-let PersonType = new GraphQLObjectType({
-  name: 'Person',
-  description: '',
-  fields: () => ({
-    lastName: {
-      type: GraphQLString,
-    },
-    firstName: {
-      type: GraphQLString,
-    }
-  })
-});
 
 let MetadataType = new GraphQLObjectType({
   name: 'Metadata',
@@ -278,6 +248,42 @@ let UserType = new GraphQLObjectType({
   })
 }); 
 
+console.log(person);
+
+
+var arrayRegexp = new RegExp("array<(\\S+)>");
+
+
+function convertSchemaToGraphQL(json) {
+  var newJson = {};
+  var val;
+
+  for (var key in json) {
+    val = json[key];
+    if (typeof(val)==='object') { //recursive case
+      newJson[key] = convertSchemaToGraphQL(val);
+    } else {  //base case
+      if (key==='type' && GraphQLLookupTablePrim.hasOwnProperty(val)) {
+        newJson[key] = GraphQLLookupTablePrim[val].call();
+      } else {
+        newJson[key] = val;
+      }
+    }
+  }
+
+  return newJson;
+}
+
+
+var json = convertSchemaToGraphQL(person);
+GraphQLLookupTableUser['person'] = () => json;
+global['person'] = new GraphQLObjectType({ 
+  name: 'person', 
+  fields: () => json 
+});
+
+console.log(person);
+
 function updateUser(args) {
   console.log("update user");
 }
@@ -324,7 +330,7 @@ let RootQueryType = new GraphQLObjectType({
   name: 'GET',
   fields: {
     user: {
-      type: UserType,
+      type: GraphQLString,
       args: {
         name: {
           type: GraphQLString
@@ -336,7 +342,7 @@ let RootQueryType = new GraphQLObjectType({
       }
     },
     project: {
-      type: ProjectType,
+      type: GraphQLString,
       args: {
         name: {
           type: GraphQLString
@@ -353,7 +359,7 @@ let RootMutationType = new GraphQLObjectType({
   name: 'UPDATE',
   fields: {
     user: {
-      type: UserType,
+      type: GraphQLString,
       resolve: (root, {id,name}) => {
         console.log(id + " " + name);
         return 10;
