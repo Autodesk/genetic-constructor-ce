@@ -33,15 +33,11 @@ function executeCommand(command) {
 }
 
 //table lookup
-var GraphQLLookupTablePrim = {
+var GraphQLLookupTable = {
   'int': () => GraphQLInt,
   'float': () => GraphQLFloat,
   'string': () => GraphQLString,
   'uuid': () => GraphQLString
-};
-
-var GraphQLLookupTableUser = {
-
 };
 
 global['person'] = {
@@ -49,7 +45,10 @@ global['person'] = {
     type: 'string',
   },
   firstName: {
-    type: 'string',
+    type: 'string'
+  },
+  refs: {
+    type: 'array<string>'
   }
 };
 
@@ -248,9 +247,6 @@ let UserType = new GraphQLObjectType({
   })
 }); 
 
-console.log(person);
-
-
 var arrayRegexp = new RegExp("array<(\\S+)>");
 
 
@@ -263,11 +259,27 @@ function convertSchemaToGraphQL(json) {
     if (typeof(val)==='object') { //recursive case
       newJson[key] = convertSchemaToGraphQL(val);
     } else {  //base case
-      if (key==='type' && GraphQLLookupTablePrim.hasOwnProperty(val)) {
-        newJson[key] = GraphQLLookupTablePrim[val].call();
-      } else {
-        newJson[key] = val;
+      if (key==='type') {
+        
+        if (GraphQLLookupTable.hasOwnProperty(val)) {
+        
+          val = GraphQLLookupTable[val].call();
+        
+        } else { //if key not in GraphQLLookupTable
+       
+          var m = arrayRegexp.exec(val); //check for array type
+          if (m && m.length > 1) {
+            val = m[1];
+            if (GraphQLLookupTable.hasOwnProperty(val)) {
+              val = GraphQLLookupTable[val].call();            
+            }
+            val = new GraphQLList(val);
+          }
+
+        }
       }
+
+      newJson[key] = val;
     }
   }
 
@@ -275,8 +287,9 @@ function convertSchemaToGraphQL(json) {
 }
 
 
+console.log(person);
+
 var json = convertSchemaToGraphQL(person);
-GraphQLLookupTableUser['person'] = () => json;
 global['person'] = new GraphQLObjectType({ 
   name: 'person', 
   fields: () => json 
