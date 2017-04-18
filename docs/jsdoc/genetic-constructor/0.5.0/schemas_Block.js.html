@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: schemas/Block.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: schemas/Block.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+Copyright 2016 Autodesk,Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+import fields from './fields/index';
+import * as validators from './fields/validators';
+import { InstanceSchemaClass } from './Instance';
+import SequenceSchema from './Sequence';
+import RulesSchema from './Rules';
+import BlockSourceSchema from './BlockSource';
+
+/**
+ * A component of a construct, or construct itself.
+ * Blocks are hierarchically composable elements which make up large constructs of DNA. Hierarchy is established with the `components` field, whereby a block references its children.
+ * Blocks may have a `sequence`, which is a reference to a file and associated annotations, and if so should reference their source (e.g. foundry, NCBI) whence they came.
+ * Blocks can define `rules`, to which direct descendent blocks must adhere. For example, bounds to GC content, whether locations are fixed, filters for allowed blocks. The type is the key, the rule is the value (heterogeneous formats). Currently, rules only apply to direct descendents in the design canvas.
+ * List Blocks allow for combinatorial logic, where multiple blocks can be associated as combinatorial `options` for this block. A block cannot be both a list block and have components.
+ * In addition to sequence annotations, a block may list `notes`, which are essentially annotations that do not specifically reference the sequence.
+ * @name BlockSchema
+ * @memberOf module:Schemas
+ * @gc Schema
+ */
+
+const blockFields = {
+  id: [
+    fields.id({ prefix: 'block' }).required,
+    'Block UUID',
+  ],
+
+  //todo - scaffold this to null to mark unassociated? and require the field?
+  projectId: [
+    fields.id({ prefix: 'project' }),
+    'Project UUID',
+    { avoidScaffold: true },
+  ],
+
+  sequence: [
+    SequenceSchema,
+    `Associated Sequence (link, not the sequence itself), and Annotations etc. associated`,
+  ],
+
+  source: [
+    BlockSourceSchema,
+    `Source (Inventory) ID of the Part`,
+  ],
+
+  rules: [
+    RulesSchema,
+    `Grammar/rules governing the whole Block and direct descendants`,
+  ],
+
+  components: [
+    fields.arrayOf(validators.id()).required,
+    `Array of Blocks of which this Block is comprised`,
+  ],
+
+  options: [
+    fields.object().required,
+    `Map of Blocks that form the List Block, if rules.isList === true, where keys are block IDs possible and key is boolean whether selected. Each block MUST be a spec.`,
+  ],
+
+  notes: [
+    fields.object().required,
+    `Notes about the whole Block`,
+  ],
+};
+
+export class BlockSchemaClass extends InstanceSchemaClass {
+  constructor(fieldDefinitions) {
+    super(Object.assign({}, blockFields, fieldDefinitions));
+  }
+
+  validate(instance, shouldThrow) {
+    const fieldsValid = super.validateFields(instance, shouldThrow);
+
+    if (!fieldsValid) {
+      return false;
+    }
+
+    const optionsComponentsExclusive = Object.keys(instance.options).filter(opt => instance.options[opt]).length === 0 || instance.components.length === 0;
+
+    if (!optionsComponentsExclusive) {
+      const errorMessage = 'Components and Options fields are mutually exlusive';
+      if (shouldThrow) {
+        throw Error(errorMessage, instance);
+      } else if (process.env.NODE_ENV !== 'production') {
+        console.error(errorMessage); //eslint-disable-line
+      }
+    }
+
+    return optionsComponentsExclusive;
+  }
+}
+
+export default new BlockSchemaClass();
+
+/*
+ //SBOL has a field called role, particularly in defining modules. We may want to add this later. For now, this annotation can be a role per-component.
+ export const enumRoles = [
+
+ //SBOL
+ 'Promoter',
+ 'RBS',
+ 'CDS',
+ 'Terminator',
+ 'Gene',
+ 'Engineered Gene',
+ 'mRNA',
+
+ //others
+ 'placeholder',
+ ];
+ */
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Actions.html">Actions</a></li><li><a href="module-Actions.module_Actions_Blocks.html">Actions_Blocks</a></li><li><a href="module-Actions.module_Actions_Clipboard.html">Actions_Clipboard</a></li><li><a href="module-Actions.module_Actions_Focus.html">Actions_Focus</a></li><li><a href="module-Actions.module_Actions_Inventory.html">Actions_Inventory</a></li><li><a href="module-Actions.module_Actions_Orders.html">Actions_Orders</a></li><li><a href="module-Actions.module_Actions_Projects.html">Actions_Projects</a></li><li><a href="module-Actions.module_Actions_UI.html">Actions_UI</a></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-constructor.html">constructor</a></li><li><a href="module-constructor.module_api.html">api</a></li><li><a href="module-constructor.module_extensions.html">extensions</a></li><li><a href="module-constructor.module_store.html">store</a></li><li><a href="module-Schemas.html">Schemas</a></li><li><a href="module-search.html">search</a></li><li><a href="module-Selectors.html">Selectors</a></li><li><a href="module-Selectors.module_Selectors_UI.html">Selectors_UI</a></li></ul><h3>Classes</h3><ul><li><a href="Annotation.html">Annotation</a></li><li><a href="Block.html">Block</a></li><li><a href="Immutable.html">Immutable</a></li><li><a href="Instance.html">Instance</a></li><li><a href="Order.html">Order</a></li><li><a href="Project.html">Project</a></li><li><a href="Schema.html">Schema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Aug 01 2016 16:49:10 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

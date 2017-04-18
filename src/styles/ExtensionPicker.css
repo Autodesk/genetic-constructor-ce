@@ -1,0 +1,74 @@
+@import './variables.css';
+
+.ExtensionPicker {
+  width: 80vw;
+
+  /* hack to handle duncan's stupid cSS */
+  div {
+    width: inherit;
+  }
+
+  &-list {
+    border-collapse: collapse;
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 100px;
+    padding: 0.5em;
+
+    /* active col */
+    /* many hacks for dealing with duncan modal css */
+    > div {
+      width: 100px;
+      flex-grow: 1;
+      margin: 0;
+
+      &:first-child {
+        flex-shrink: 0;
+        flex-grow: 0;
+        text-align: center;
+        width: 50px;
+      }
+
+      &:last-child {
+        padding-right: 1rem;
+        flex-grow: 3;
+      }
+    }
+  }
+
+  div&-header {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--colors-mediumLightGrey);
+    color: var(--colors-mediumLightGrey);
+  }
+
+  &-cell {
+    font-size: var(--font-size-modal);
+    flex-grow: 1;
+  }
+
+  &-Name {
+    font-weight: bold;
+  }
+
+  input&-toggle&-cell {
+    display: inline-block;
+    width: 1.5em;
+    height: 1em;
+    margin: 0;
+    text-align: center;
+  }
+
+  button {
+    padding: 0 4rem 0 4rem;
+  }
+}

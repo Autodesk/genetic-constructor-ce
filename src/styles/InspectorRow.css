@@ -1,0 +1,33 @@
+@import './variables.css';
+
+.InspectorRow {
+  margin: 1.5em 0 0;
+
+  &:empty {
+    margin: 0;
+  }
+
+  &-heading {
+    font-size: var(--font-size-text);
+    color: var(--colors-slightlyDarkGrey);
+    font-weight: 500;
+    margin: 0 0 0.5em;
+    user-select: none;
+
+    &.toggler {
+      cursor: pointer;
+    }
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+
+  &-content {
+
+  }
+
+  &:last-child {
+    margin-bottom: 2em;
+  }
+}

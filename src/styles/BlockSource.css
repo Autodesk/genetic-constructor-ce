@@ -1,0 +1,25 @@
+@import 'variables.css';
+
+.BlockSource {
+  text-decoration: none;
+  color: var(--colors-white);
+
+  &[href] {
+    cursor: pointer;
+  }
+
+  &-name {
+    color: var(--colors-white);
+  }
+
+  &-icon {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    vertical-align: text-top;
+    margin-left: 0.5em;
+    background-image: url('/images/ui/offsiteLink.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}

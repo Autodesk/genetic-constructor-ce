@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>run_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-60.000000, -124.000000)">
+            <polygon id="Fill-7-Copy" fill="#757884" points="68.66667 125 72 128.5 68.66667 132 68 131.3 70.66667 128.5 68 125.7"></polygon>
+            <g id="Page-1" transform="translate(63.000000, 128.000000)" stroke="#757884" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.5573039,5.05705496 C10.8016332,7.85068853 8.73553156,10.3128863 5.94246152,10.557293 C3.14939147,10.8016997 0.687097854,8.73548421 0.442696066,5.94257588 C0.198366801,3.14894231 2.26446844,0.686744497 5.05753848,0.442337821 C5.85565174,0.372714555 6.65891411,0.492379544 7.40169249,0.792629881" id="Stroke-3"></path>
+            </g>
+        </g>
+    </g>
+</svg>

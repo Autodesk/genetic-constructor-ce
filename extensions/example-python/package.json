@@ -1,0 +1,24 @@
+{
+  "name": "example-python",
+  "version": "1.0.0",
+  "description": "Example extension running python scripts",
+  "geneticConstructor": {
+    "type": "(Example)",
+    "router": "router.js",
+    "client": [
+      {
+        "file": "client.js",
+        "region": "projectDetail"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "pip install biopython"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: models/Instance.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: models/Instance.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ Copyright 2016 Autodesk,Inc.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+import { set as pathSet, unset as pathUnset, cloneDeep, merge } from 'lodash';
+import invariant from 'invariant';
+import Immutable from './Immutable';
+import InstanceSchema from '../schemas/Instance';
+import safeValidate from '../schemas/fields/safeValidate';
+import { version } from '../schemas/fields/validators';
+
+const versionValidator = (ver, required = false) => safeValidate(version(), required, ver);
+
+/**
+ * Instances are immutable objects, which conform to a schema, and provide an explicit API for modifying their data.
+ * Instances have an ID, metadata, and are versioned (explicitly or implicitly by the Instance which owns them)
+ * @name Instance
+ * @class
+ * @extends Immutable
+ * @gc Model
+ */
+export default class Instance extends Immutable {
+  /**
+   * Create an instance
+   * @constructor
+   * @param {Object} input Input object
+   * @param {Object} [subclassBase] If extending the class, additional fields to use in the scaffold
+   * @param {Object} [moreFields] Additional fields, beyond the scaffold
+   * @returns {Instance} An instance, frozen if not in production
+   */
+  constructor(input = {}, subclassBase, moreFields) {
+    invariant(typeof input === 'object', 'must pass an object (or leave undefined) to model constructor');
+
+    return super(merge(
+      InstanceSchema.scaffold(),
+      subclassBase,
+      moreFields,
+      input,
+    ));
+  }
+
+  /**
+   * See {@link Immutable.mutate}
+   * @method mutate
+   * @memberOf Instance
+   */
+  mutate(path, value) {
+    return super.mutate(path, value);
+  }
+
+  /**
+   * See {@link Immutable.merge}
+   * @method merge
+   * @memberOf Instance
+   */
+  merge(obj) {
+    return super.merge(obj);
+  }
+
+  /**
+   * Clone an instance, adding the parent to the ancestry of the child Instance.
+   * @method clone
+   * @memberOf Instance
+   * @param {object|null|string} [parentInfo={}] Parent info for denoting ancestry. If pass null to parentInfo, the instance is simply cloned, and nothing is added to the history. If pass a string, it will be used as the version.
+   * @param {Object} [overwrites={}] object to merge into the cloned Instance
+   * @throws if version is invalid (not provided and no field version on the instance)
+   * @returns {Instance}
+   */
+  clone(parentInfo = {}, overwrites = {}) {
+    const cloned = cloneDeep(this);
+    let clone;
+
+    if (parentInfo === null) {
+      clone = merge(cloned, overwrites);
+    } else {
+      const inputObject = (typeof parentInfo === 'string') ?
+      { version: parentInfo } :
+        parentInfo;
+
+      const parentObject = Object.assign({
+        id: cloned.id,
+        version: cloned.version,
+      }, inputObject);
+
+      invariant(versionValidator(parentObject.version), 'must pass a valid version (SHA), got ' + parentObject.version);
+
+      const parents = [parentObject, ...cloned.parents];
+
+      //unclear why, but merging parents was not overwriting the clone, so shallow assign parents specifically
+      clone = Object.assign(merge(cloned, overwrites), { parents });
+      delete clone.id;
+    }
+
+    return new this.constructor(clone);
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Actions.html">Actions</a></li><li><a href="module-Actions.module_Actions_Blocks.html">Actions_Blocks</a></li><li><a href="module-Actions.module_Actions_Clipboard.html">Actions_Clipboard</a></li><li><a href="module-Actions.module_Actions_Focus.html">Actions_Focus</a></li><li><a href="module-Actions.module_Actions_Inventory.html">Actions_Inventory</a></li><li><a href="module-Actions.module_Actions_Orders.html">Actions_Orders</a></li><li><a href="module-Actions.module_Actions_Projects.html">Actions_Projects</a></li><li><a href="module-Actions.module_Actions_UI.html">Actions_UI</a></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-constructor.html">constructor</a></li><li><a href="module-constructor.module_api.html">api</a></li><li><a href="module-constructor.module_extensions.html">extensions</a></li><li><a href="module-constructor.module_store.html">store</a></li><li><a href="module-Schemas.html">Schemas</a></li><li><a href="module-search.html">search</a></li><li><a href="module-Selectors.html">Selectors</a></li><li><a href="module-Selectors.module_Selectors_UI.html">Selectors_UI</a></li></ul><h3>Classes</h3><ul><li><a href="Annotation.html">Annotation</a></li><li><a href="Block.html">Block</a></li><li><a href="Immutable.html">Immutable</a></li><li><a href="Instance.html">Instance</a></li><li><a href="Order.html">Order</a></li><li><a href="Project.html">Project</a></li><li><a href="Schema.html">Schema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Aug 01 2016 16:49:10 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

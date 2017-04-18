@@ -1,0 +1,11 @@
+<svg  id="sbol-svg-rnaStability" width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>rnaStability</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M13.5,22 L13.5,20" id="Stroke-4-Copy-2" stroke="#E6E6E6"></path>
+        <path d="M13.5,25 L13.5,23" id="Stroke-4-Copy-3" stroke="#E6E6E6"></path>
+        <path d="M13.5,19.5 C16.8137085,19.5 19.5,16.8137085 19.5,13.5 C19.5,10.1862915 16.8137085,7.5 13.5,7.5 C10.1862915,7.5 7.5,10.1862915 7.5,13.5 C7.5,16.8137085 10.1862915,19.5 13.5,19.5 Z" id="Oval-3" stroke="#E6E6E6" stroke-dasharray="3,2"></path>
+    </g>
+</svg>

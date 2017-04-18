@@ -1,0 +1,63 @@
+{
+  "name": "gctor-storage",
+  "description": "a REST application for storing Genetic Constructor Project data",
+  "version": "0.2.1",
+  "private": false,
+  "author": {
+    "name": "Drew Hylbert",
+    "email": "drew.hylbert@autodesk.com",
+    "url": "https://www.autodeskresearch.com/people/drew-hylbert"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "start": ": > ./logs/server.log && node ./node_modules/supervisor/lib/cli-wrapper.js -RV -W . ./lib/server.js | tee -a -i ./logs/server.log | ./node_modules/format-json-log/cli.js",
+    "cluster": ": > ./logs/server.log && node ./lib/cluster.js | tee -a -i ./logs/server.log | ./node_modules/format-json-log/cli.js",
+    "server": ": > ./logs/server.log && node ./node_modules/supervisor/lib/cli-wrapper.js ./lib/server.js | tee -a -i ./logs/server.log | ./node_modules/format-json-log/cli.js",
+    "test": "LOG_LEVEL=error make test | ./node_modules/format-json-log/cli.js",
+    "jenkins": "LOG_LEVEL=error make jenkins | ./node_modules/format-json-log/cli.js",
+    "db": "docker build -t gctorstorage_db ./postgres/; docker run -p 5432:5432 -l \"gctorstorage_db\" --rm -t -i gctorstorage_db",
+    "db-background": "docker build -t gctorstorage_db ./postgres/; docker run -p 5432:5432 -l \"gctorstorage_db\" --rm gctorstorage_db",
+    "db-client": "docker exec -ti `docker ps -q -f label=gctorstorage_db` psql -U storage -h localhost -W storage",
+    "wait-n-cluster": "node ./bin/db-wait.js && npm run cluster",
+    "wait-n-server": "node ./bin/db-wait.js && npm run server",
+    "wait-n-test": "node ./bin/db-wait.js && npm test",
+    "wait-n-jenkins": "node ./bin/db-wait.js && npm run jenkins",
+    "docker-build": "docker-compose -p \"gctorstorage\" -f docker-compose.yml build",
+    "docker-test": "docker-compose -p \"gctorstorage\" -f docker-compose-test.yml up --no-recreate --abort-on-container-exit",
+    "docker-run": "docker-compose -p \"gctorstorage\" -f docker-compose.yml up --no-recreate --abort-on-container-exit"
+  },
+  "dependencies": {
+    "assert": "^1.3.0",
+    "async": "^1.5.2",
+    "body-parser": "^1.13.3",
+    "bouncy": "^3.2.2",
+    "bunyan": "^1.8.3",
+    "bunyan-express-serializer": "^1.0.0",
+    "concat-stream": "^1.5.2",
+    "defined": "^1.0.0",
+    "express": "~4.13.1",
+    "format-json-log": "^1.0.4",
+    "http": "0.0.0",
+    "http-route": "^1.1.0",
+    "object-path": "^0.11.2",
+    "on-finished": "^2.3.0",
+    "once": "^1.4.0",
+    "pg": "^6.1.0",
+    "sequelize": "^3.24.4",
+    "supervisor": "^0.11.0",
+    "underscore": "^1.8.3",
+    "url": "^0.11.0",
+    "urlsafe-base64": "^1.0.0",
+    "uuid": "^2.0.1",
+    "uuid-validate": "0.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "mocha-jenkins-reporter": "^0.1.9",
+    "supertest": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=4.6.1",
+    "npm": ">=2.14.7"
+  }
+}

@@ -1,0 +1,114 @@
+<html>
+  <head>
+  </head>
+  <body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1D222D;
+    }
+    @font-face {
+    font-family: ArtifaktElementRegular; src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.woff);
+    }
+    .font-regular {
+      font-family: ArtifaktElementRegular;
+    }
+    @font-face {
+    font-family: ArtifaktElementBold; src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.woff);
+    }
+    .font-bold {
+      font-family: ArtifaktElementBold;
+    }
+    @font-face {
+    font-family: ArtifaktElementLight; src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light.woff);
+    }
+    .font-light {
+      font-family: ArtifaktElementLight;
+    }
+    @font-face {
+    font-family: ArtifaktElementMedium; src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium.woff);
+    }
+    .font-medium {
+      font-family: ArtifaktElementMedium;
+    }
+    .color-white {
+      color: white;
+    }
+    .color-orange {
+      color: #ff8000;
+    }
+    .color-gray {
+      color: #dfe1ed;
+    }
+    .color-blue {
+      color: dodgerblue;
+    }
+    .size-small {
+      font-size: 14px;
+    }
+    .size-medium {
+      font-size: 18px;
+    }
+    .size-large {
+      font-size: 40px;
+    }
+
+    .grid {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+      text-align: center;
+    }
+    .row1 {
+      margin: 2rem 0 0 0;
+    }
+    .row3 {
+      text-align: left;
+      margin: 0 auto;
+    }
+    .msg {
+      max-width: 32rem;
+      padding: 0 1rem 0 1rem;
+    }
+    a {
+      padding: 0 1rem 0 1rem;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .image {
+      width: 127px;
+      height: 21px;
+      margin: 0 auto 2rem auto;
+  	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH8AAAAVCAMAAABYDMEdAAABMlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8t10FaAAAAZnRSTlMAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/QEFCQ0RFRkdISUpLTE1OT1BRUlNUVVZXWFlaW1xdXl9gYWJjZGUdvP7NAAAD0klEQVR4AcXVb1cSzR/H8c/uAi1IimmZkQIqUYRoKBT8UGRRNwgiihAV+QP7ef5P4Tczu3Coc3XOda4b9ro5ztc3M5w5QDH26pRyGv6KQ+fTgMJgFX9DoM+bCqVT/BeG8W826fiVhrmUw8nlkMKN+duevUJa7dvIZwMQgrmTCF4V8q7CKwDbx1fX+V0DQjQv5JIvVCo+3/USCOwVr2r5mAkcFGIQtvIft+ExmiS/tCk4GfwiNORkA0KSgxUIz2aMocC5GEIXU0r1CIA8ldHlGoALej5g5TOVcx02zwDsDvg1DM/LMclp1aHQ8mFZluSpBuCAfdVfH013sW/b9oB92y4ZgbpIH2euxuyGgRMOxZ/aZG8dOOO4bktx7YjjSjpb7aU0XPF/wNaArRA8WpnShy6FaRRLzC47s0H4975UYxHCBzpZDUDsgRVd9L8A8CcHtA3R/+6Holu0IYQDUP2NHr+vYi48pjBeP6RUxZIE+5t9Hv1TX50DoVuW5zflRES/pUFIziYvZN8H1ykHyTC8ueK6OFUECyeUali7dz8HFnzXLCHLnvnH/uuJswUlOGJq0Td7zIj+0Do/P5V3sNol+9V9Xc1ddth7ioUn7r3HAYtSAQtbzmgVK/dM/7Efm44iUPxdZhZ9fOWJ6EtDE8JK+Y6cNTfl3E+v4YnNKLQNYMeh0A1irsqbRGKvw6ZP9O/n/dhSf2cyfQ7FfODbRT/Q5aE8/1mpdOyDEsl+Jn8Gxdx5haN9zBk1SikAWotSEp7nQ7qcV9iecdO9ksnOUj94yxKUd3Q2Fv2kI0aWvn+1qMfl271iSS9zmtbgejmj0AtCOKDU0OEqcfC50WjU73iBJ3c8NwDDYj+41McnTpIQXvR5bYh+E8LOLb8ERP/HE7gShRCA0IhJNadXOH0DV5GSekMI3XinVcK3zOlSipNNHJH2+0ydPMZyP9TkzHqXqjywG4Ho35fL5caUd5uQ918pS1H9G3sf04dtTlbdOb/NUQyIv9Vx1On+6LaeQil4T0HJ8H4NkvmTZzAtKmd+KLZYk55eO5TaG+qdKU5d5FGh5wi5AaVZVvPmzEtO9zWru450w6rVLgrSx2JhTOHhGQQta72HK17L++HbLTYbpZgBV8bybtD3utRsVQ5MCIlqtXqRf7+tNqVqVdcOsJ61Oq1iVFvMBU5rJXMtamDlO+em1RWLUhaSrmNO17Xff+c0dwnuuuYtSks7PBB0n/HrnO79/zf0tF8DW5TEM3k8/m+UHnIBAD7be4KPaJekU9mEkphR+ObD49EK7ER1uII9CpMoHsn/ASyjLWExPS1sAAAAAElFTkSuQmCC);
+  }
+
+
+  </style>
+
+  <div class="grid">
+
+    <div class="row1">
+      <span class="color-white size-medium font-regular">Autodesk</span>
+      <span class="color-white size-medium font-bold">BioNano</span>
+    </div>
+
+    <div class="row2">
+      <span class="color-white size-large font-light">Oops!&nbsp;</span>
+      <span class="color-orange size-large font-light">Service is unavailable.</span>
+    </div>
+
+    <div class="row3">
+      <div class="color-gray size-small font-medium msg">Occasionally we need to take a service offline for maintenance. Normally this only lasts a short time. If you are seeing this message too frequently, please </div>
+      <a class="color-blue size-small font-medium" href="https://forum.bionano.autodesk.com/t/service-status-updates">check here for status information.</a>
+    </div>
+
+    <div class="image"></div>
+
+  </div>
+
+  </body>
+</html>

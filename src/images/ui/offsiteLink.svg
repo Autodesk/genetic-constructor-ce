@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>offsiteLink</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-389.000000, -83.000000)" stroke="#3F82FF" stroke-width="2">
+            <path d="M393,84 C393,84 391.052356,84 391,84 C390.037974,84 390,84 390,85 L390,93 C390,94 390,94 391,94 L399,94 C400,94 400,94 400,93 C400,92.9058032 400,91.4635449 400,91" id="Path-49"></path>
+            <polyline id="Path-49" points="396 84 400 84 400 88"></polyline>
+            <path d="M400,84 L393,91" id="Path-50"></path>
+        </g>
+    </g>
+</svg>

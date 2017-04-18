@@ -1,0 +1,9 @@
+{
+  "name": "genbank",
+  "version": "1.0.0",
+  "author": "Autodesk Inc.",
+  "description": "import and export genbank formatted strings",
+  "geneticConstructor": {
+    "router": "index.js"
+  }
+}

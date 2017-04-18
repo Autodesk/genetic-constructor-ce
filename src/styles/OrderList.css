@@ -1,0 +1,24 @@
+@import './variables.css';
+
+.OrderList {
+
+  &-group {
+    padding-bottom: 0.5em;
+    user-select: none;
+
+    &-heading {
+      color: var(--colors-nearlyBlack);
+    }
+
+    &-names,
+    &-time {
+      color: var(--colors-slightlyDarkGrey);
+    }
+
+    &-action {
+      color: var(--colors-bluetext);
+      padding-left: 0.5em;
+      cursor: pointer;
+    }
+  }
+}

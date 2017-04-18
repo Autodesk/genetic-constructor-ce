@@ -1,0 +1,108 @@
+@import 'variables.css';
+
+.InventoryListGroup {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin: 0 0 3px;
+
+  &-heading {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    justify-content: space-between;
+    user-select: none;
+    padding: 2px 5px;
+    border-radius: 3px;
+    position: relative;
+
+    &-filler {
+      flex-grow: 1;
+    }
+  }
+
+  &-title {
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-contents {
+    flex-grow: 1;
+    margin: 0 0 0 1.5em;
+    padding: 0.25em 0;
+    overflow-y: scroll;
+
+    > *:last-child > .InventoryListGroup {
+      margin-bottom: 0;
+    }
+  }
+
+  &.expanded {
+    flex-shrink: 0;
+
+    > .InventoryListGroup-heading {
+      .InventoryListGroup-title {
+        font-weight: bold;
+      }
+
+      .InventoryListGroup-toggle {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &.active {
+    > .InventoryListGroup-heading {
+      .InventoryListGroup-title {
+        font-weight: bold;
+        color: var(--colors-selected);
+      }
+    }
+  }
+
+  &.disabled {
+    color: var(--colors-slightlyDarkGrey);
+
+    > .InventoryListGroup-heading {
+      .InventoryListGroup-title,
+      .InventoryListGroup-toggle {
+        cursor: default;
+      }
+    }
+  }
+
+  &.isSelectable {
+    .InventoryListGroup-toggle {
+      /* todo - make this a different color, needs svg */
+    }
+
+    &.active,
+    &.selected {
+      > .InventoryListGroup-heading {
+        background-color: rgba(255, 255, 255, 0.2);
+
+        .InventoryListGroup-title {
+          font-weight: inherit;
+          color: inherit;
+        }
+      }
+    }
+
+    &.expanded {
+      > .InventoryListGroup-heading .InventoryListGroup-title {
+        font-weight: bold;
+      }
+    }
+
+    > .InventoryListGroup-heading {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--colors-selected);
+      }
+    }
+  }
+}

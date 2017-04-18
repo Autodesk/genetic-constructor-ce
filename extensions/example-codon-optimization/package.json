@@ -1,0 +1,14 @@
+{
+  "name": "example-codon-optimization",
+  "version": "1.0.0",
+  "description": "Example Providing codon optimization",
+  "geneticConstructor": {
+    "type": "(Example)",
+    "client": [
+      {
+        "file": "index.js",
+        "region": null
+      }
+    ]
+  }
+}

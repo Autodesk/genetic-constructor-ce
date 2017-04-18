@@ -1,0 +1,82 @@
+@import './variables.css';
+@import './form.css';
+
+
+.genbank-import-form {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  * {
+    width: 80%;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+  }
+
+  .dropzone {
+    width: 80%;
+    height: 10rem;
+    border-radius: var(--modal-radius);
+    background-color: var(--modal-inputcolor);
+    border: none;
+    margin: 1rem 0 1rem 0;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+  }
+  .dropzone-hot {
+    background-color: var(--modal-textcolor);
+  }
+  .dropzone:hover {
+    background-color: var(--modal-textcolor);
+  }
+  .dropzone-text {
+    font-size: 3rem;
+    color: white;
+    line-height: 10rem;
+    width: auto;
+  }
+  .file-name {
+    color: var(--modal-textcolor);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .file-name:last-of-type {
+    margin-bottom: 1rem;
+  }
+
+  input[type="radio"] {
+    display: inline-block;
+    width: auto;
+  }
+
+  .radio {
+    display: flex;
+    text-align: center;
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+
+    div {
+      font-size: var(--modal-fontsize);
+      color: var(--modal-textcolor);
+      margin-left: 1rem;
+      margin-top: 2px;
+      width: 10rem;
+      display: inline-block;
+      text-align: left;
+    }
+  }
+  .link {
+    text-align:center;
+
+    span {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: models/Annotation.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: models/Annotation.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ Copyright 2016 Autodesk,Inc.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+import Immutable from './Immutable';
+import AnnotationSchema from '../schemas/Annotation';
+import { merge, cloneDeep } from 'lodash';
+import color from '../utils/generators/color';
+import { symbolMap } from '../inventory/roles';
+
+/**
+ * Annotations mark regions of sequence with notes, colors, roles, etc.
+ * Annotations are often used in imports due to the hierarchical nature of the Genetic Constructor data model. Blocks do not allow for overlaps, but many sequences have overlapping annotations. Annotations which do not overlap are used to create the Block hierarchy, while overlaps are converted into instances of the Annotation class.
+ * @name Annotation
+ * @class
+ * @extends Immutable
+ * @gc Model
+ */
+export default class Annotation extends Immutable {
+  /**
+   * Create an annotation
+   * @constructor
+   * @param {Object} input Input object for the annotation to merge onto the scaffold
+   */
+  constructor(input) {
+    return super(merge(
+      AnnotationSchema.scaffold(),
+      { color: color() },
+      input,
+    ));
+  }
+
+  /**
+   * Create an unfrozen annotation, extending input with schema
+   * @method classless
+   * @memberOf Annotation
+   * @param {Object} [input]
+   * @returns {Object} an unfrozen JSON, no instance methods
+   */
+  static classless(input) {
+    return cloneDeep(new Annotation(input));
+  }
+
+  /**
+   * Validate an annotation
+   * @method validate
+   * @memberOf Annotation
+   * @static
+   * @param {Object} input Object to validate
+   * @param {boolean} [throwOnError=false] Validation should throw on errors
+   * @throws if you specify throwOnError
+   * @returns {boolean} Whether input valid
+   */
+  static validate(input, throwOnError) {
+    return AnnotationSchema.validate(input, throwOnError);
+  }
+
+  /**
+   * Get the length of the annotation
+   * @property length
+   * @memberOf Annotation
+   * @returns {number}
+   */
+  get length() {
+    //todo - this is super naive
+    return this.end - this.start;
+  }
+
+  /**
+   * Get the annotation role
+   * @method getRole
+   * @memberOf Annotation
+   * @param {boolean} [userFriendly=true] Return readable text
+   * @returns {string} Annotation role
+   */
+  getRole(userFriendly = true) {
+    const friendly = symbolMap[this.role];
+
+    return (userFriendly === true &amp;&amp; friendly) ?
+      friendly :
+      this.role;
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Actions.html">Actions</a></li><li><a href="module-Actions.module_Actions_Blocks.html">Actions_Blocks</a></li><li><a href="module-Actions.module_Actions_Clipboard.html">Actions_Clipboard</a></li><li><a href="module-Actions.module_Actions_Focus.html">Actions_Focus</a></li><li><a href="module-Actions.module_Actions_Inventory.html">Actions_Inventory</a></li><li><a href="module-Actions.module_Actions_Orders.html">Actions_Orders</a></li><li><a href="module-Actions.module_Actions_Projects.html">Actions_Projects</a></li><li><a href="module-Actions.module_Actions_UI.html">Actions_UI</a></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-constructor.html">constructor</a></li><li><a href="module-constructor.module_api.html">api</a></li><li><a href="module-constructor.module_extensions.html">extensions</a></li><li><a href="module-constructor.module_store.html">store</a></li><li><a href="module-Schemas.html">Schemas</a></li><li><a href="module-search.html">search</a></li><li><a href="module-Selectors.html">Selectors</a></li><li><a href="module-Selectors.module_Selectors_UI.html">Selectors_UI</a></li></ul><h3>Classes</h3><ul><li><a href="Annotation.html">Annotation</a></li><li><a href="Block.html">Block</a></li><li><a href="Immutable.html">Immutable</a></li><li><a href="Instance.html">Instance</a></li><li><a href="Order.html">Order</a></li><li><a href="Project.html">Project</a></li><li><a href="Schema.html">Schema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Aug 01 2016 16:49:10 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

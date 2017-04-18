@@ -1,0 +1,93 @@
+:root {
+
+  /* Typography
+  ==================== */
+
+  --colors-black: #000000;
+  --colors-nearlyBlack: #1D222D;
+  --colors-darkerGrey: #292D40;
+  --colors-darkGrey: #33374B;
+  --colors-mediumDarkGrey: #4B505E;
+  --colors-slightlyDarkGrey: #6B6F7C;
+  --colors-grey: #888B96;
+  --colors-slightlyLightGrey: #A0A3AE;
+  --colors-mediumLightGrey: #C2C5D2;
+  --colors-lightGrey: #DFE2EC;
+  --colors-lighterGrey: #EEEFF3;
+  --colors-nearlyWhite: #F6F7FB;
+  --colors-white: #ffffff;
+  --colors-selected: #3F82FF;
+  --colors-yellow: #FFFC79;
+  --colors-red: #FF2600;
+
+  --colors-logo: rgb(189, 130, 113);
+  --colors-text: var(--colors-nearlyBlack);
+  --colors-bluetext: var(--colors-selected);
+
+  /* Typography
+  ==================== */
+  --font-size-text: 12px;
+  --font-size-heading: 11px;
+  --font-size-modal: 14px;
+  --font-size-sectionLabel: 16px;
+
+  --font-family-base: ArtifaktElementRegular, sans-serif;
+
+  /* Media queries breakpoints
+  ==================== */
+
+  --screen-xs-min: 480px; /* Extra small screen / phone */
+  --screen-sm-min: 768px; /* Small screen / tablet */
+  --screen-md-min: 992px; /* Medium screen / desktop */
+  --screen-lg-min: 1200px; /* Large screen / wide desktop */
+
+  /* Layout
+ ==================== */
+
+  --SidePanel-width-padding-content: 14px;
+  --SidePanel-width-padding-heading: 10px;
+  --SidePanel-trigger-width: 17px;
+  --width-SidePanel-closed: 50px;
+  --width-SidePanel-open: 300px;
+
+  --GlobalNav-height-chrome: 50px;
+
+  --grunt-height: 2.5rem;
+
+  /* Backgrounds
+ ==================== */
+
+  --background-dark-semiTransparent: rgba(0,0,0,0.9);
+
+  /* Timing
+  ==================== */
+
+  --timing-extrafast: 0.05s;
+  --timing-fast: 0.15s;
+
+  /* Z Order
+  =================== */
+  --zMenu: 100000;
+  --zMenuContainer: 1000;
+  --zModal:90000;
+  --zFence:200000;
+  --z404: 99999999;
+
+  /* Modal windows
+  ==================== */
+  --modal-radius: 3px;
+  --modal-element-height: 3rem;
+  --modal-inputcolor: #E1E2E5;
+  --modal-textcolor: #747784;
+  --modal-primarycolor: #343A4D;
+  --modal-errorcolor: #FF6A5E;
+  --modal-fontsize: 1.25rem;
+
+  /* List Items
+  ===================== */
+  --listItem-background: rgba(255,255,255,0.2);
+  --listItem-backgroundHover: var(--colors-selected);
+
+  /* Project Details */
+  --projectDetailsHeight: calc(100% - 24px);
+}

@@ -1,0 +1,135 @@
+@import './variables.css';
+
+.menu-bar {
+  display: flex;
+  align-items: center;
+}
+
+.menu-dropdown {
+  display: inline-block;
+  position: relative;
+  margin-left: 4rem;
+
+  &-container {
+    position: absolute;
+    left: 0px;
+    top: calc(3rem + 4px);
+    padding: 0.5em 0;
+    z-index: var(--zMenuContainer);
+    border: 1px solid #ddd;
+    background: white;
+    box-shadow: 2px 2px 11px -2px rgba(82,82,82,1);
+    min-width: 22rem;
+
+    hr {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      border-top: 1px solid #ddd;
+    }
+  }
+}
+/*interaction blocker for popup menus, when visible or hidden*/
+.menu-popup-blocker-visible {
+  position: fixed;
+  width: 100vw !important;
+  height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  z-index: var(--zMenu);
+}
+.menu-popup-blocker-hidden {
+  position: fixed;
+  top: 0;
+  width: 0;
+  left: -10000px;
+  display: none;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.menu-popup-container {
+  position: absolute;
+  padding: 0.5em 0;
+  border: 1px solid #ddd;
+  background: white;
+  box-shadow: 2px 2px 11px -2px rgba(82,82,82,1);
+  min-width: 19rem;
+
+  hr {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-top: 1px solid #ddd;
+  }
+}
+
+.menu-header {
+  display: inline-block;
+  border-bottom: 4px solid transparent;
+  margin-top: 4px;
+  padding: 0.75em;
+  cursor: pointer;
+  color: var(--colors-slightlyDarkGrey);
+  font-size: var(--font-size-heading);
+  user-select: none;
+  &-open {
+    border-bottom: 4px solid dodgerblue;
+  }
+}
+
+.menu-item {
+  color: var(--colors-darkerGrey);
+  font-size: 1em;
+  line-height: 1.25em;
+  cursor: pointer;
+  margin: 0.25em 0 0;
+  padding: 0.25em 1em;
+  background: transparent;
+  transition: background ease-out var(--timing-fast);
+  user-select: none;
+
+  &:hover {
+    background: var(--colors-lighterGrey);
+  }
+
+  &:last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  &.disabled {
+    color: #999999;
+
+    &:hover {
+      cursor: default;
+      background: inherit;
+    }
+  }
+
+  .menu-item-checked {
+    width: 2rem;
+    display: inline-block;
+  }
+  .menu-item-checked:before {
+    content: '✓';
+  }
+  .menu-item-unchecked {
+    width: 2rem;
+    display: inline-block;
+  }
+  .menu-item-shortcut {
+    display: inline-block;
+    width: 9rem;
+    float: right;
+    text-align: right;
+
+    &.disabled {
+      color: #999999;
+    }
+  }
+}
+
+.blue-menu-items {
+  color: var(--colors-bluetext) !important;
+}

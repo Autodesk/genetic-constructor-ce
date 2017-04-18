@@ -1,0 +1,22 @@
+@import './variables.css';
+
+.ModalSpinner {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 1rem;
+  background-color: var(--colors-selected);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  text-align: center;
+  animation: 1.25s textfade infinite alternate;
+}
+@keyframes textfade {
+  from {
+    color: white;
+  }
+  to {
+    color: transparent;
+  }
+}

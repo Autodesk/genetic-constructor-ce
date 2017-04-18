@@ -1,0 +1,17 @@
+@import './variables.css';
+
+.BlockNotes {
+  &-group {
+    padding-bottom: 0.5em;
+    user-select: text;
+
+    &-title {
+      color: var(--colors-slightlyDarkGrey);
+    }
+
+    &-value {
+      color: var(--colors-nearlyBlack);
+      padding-left: 1em;
+    }
+  }
+}

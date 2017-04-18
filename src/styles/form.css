@@ -1,0 +1,128 @@
+@import './variables.css';
+
+:root {
+  --radius: 3px;
+  --element-height: 3rem;
+  --inputcolor: #E1E2E5;
+  --textcolor: #888899;
+  --primarycolor: #343A4D;
+  --errorcolor: #FF6A5E;
+  --fontsize: 1.25rem;
+}
+.gd-form {
+
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+
+  .title {
+    font-size: var(--element-height);
+    font-weight: 200;
+    color: var(--textcolor);
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem !important;
+  }
+
+  input,
+  textarea {
+    font-size: var(--fontsize);
+    border-radius: var(--radius);
+    border: 1px solid whitesmoke;
+    background-color: var(--inputcolor);
+    text-indent: 0.5rem;
+    outline: none;
+    color: var(--primarycolor);
+    padding: 0.25em;
+
+    &:focus {
+      border: 1px solid lightgray;
+    }
+  }
+
+  input {
+    height: var(--element-height);
+  }
+
+  select {
+    font-size: 1rem;
+  }
+
+  button {
+    height: var(--element-height);
+    font-size: var(--fontsize);
+    border-radius: 0;
+    cursor: pointer;
+  }
+  button[type="button"] {
+    background-color: white;
+    border: none;
+    color: textcolor;
+  }
+  button[type="submit"] {
+    background-color: var(--primarycolor);
+    color: white;
+    border: none;
+  }
+  button:disabled {
+    background-color: white;
+    border: 1px solid lightgray;
+    color: lightgray;
+    cursor: default;
+  }
+  /* errors are hidden by default, add the .visible class to make them appear*/
+  .error {
+    color: transparent;
+    font-size: var(--fontsize);
+    text-align: center;
+  }
+  .visible {
+    color: var(--errorcolor);
+  }
+  label {
+    font-size: var(--fontsize);
+    color: var(--textcolor);
+  }
+  .left-label {
+    font-size: var(--fontsize);
+    color: var(--textcolor);
+  }
+  .checkbox {
+    display: flex;
+    align-items: top;
+  }
+  .checkbox span {
+    font-size: var(--fontsize);
+    white-space: nowrap;
+    color: var(--textcolor);
+  }
+  .checkbox input {
+    width: 1rem;
+    height: auto;
+    margin: 3px 0.5rem 0 0;
+  }
+  .checkbox a {
+    color: dodgerblue;
+  }
+  a {
+    font-size: var(--fontsize);
+    color: var(--textcolor);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  span {
+    font-size: var(--fontsize);
+    color: var(--textcolor);
+  }
+
+  p {
+    font-size: var(--fontsize);
+    color: var(--textcolor);
+  }
+  a.blue-link {
+    color: var(--colors-bluetext);
+  }
+
+}

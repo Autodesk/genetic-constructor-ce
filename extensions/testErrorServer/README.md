@@ -1,0 +1,1 @@
+Extensions which cause server errors are caught, and gracefully fail.

@@ -1,0 +1,93 @@
+@import './variables.css';
+
+/* probably would look nicer to wrap in an element to avoid reflow on shrink */
+
+.SidePanel {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: var(--width-SidePanel-closed);
+  height: calc(100vh - var(--GlobalNav-height-chrome));
+  top: 0;
+  bottom: 0;
+  background: var(--colors-nearlyBlack);
+  color: var(--colors-lighterGrey);
+  transition-property: width, opacity;
+  transition-duration: var(--timing-fast);
+  will-change: width;
+
+  &.visible {
+    width: var(--width-SidePanel-open);
+  }
+
+  &-heading {
+    width: 100%;
+    padding: var(--SidePanel-width-padding-heading);;
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+
+    &-content {
+      display: none;
+      flex-grow: 1;
+      justify-content: space-between;
+      align-items: center;
+
+      .visible & {
+        display: flex;
+      }
+    }
+
+    &-trigger,
+    &-close {
+      width: var(--SidePanel-trigger-width);
+      height: var(--SidePanel-trigger-width);
+      min-width: var(--SidePanel-trigger-width);
+      cursor: pointer;
+      /* temp */
+      text-align: center;
+      margin: 0;
+      background-size: contain;
+    }
+
+    &-trigger {
+      margin: 0;
+
+      .visible & {
+        margin-right: var(--SidePanel-width-padding-heading);
+      }
+    }
+
+    &-title {
+      font-size: var(--font-size-text);
+      text-transform: uppercase;
+      font-weight: 200;
+      display: inline-block; /* hack ish - ensure height */
+    }
+
+    &-close {
+      align-self: flex-end;
+      margin: -4px -2px 0 0;
+      background-image: url('/images/ui/close_icon.svg');
+    }
+  }
+
+  &-content {
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    width: var(--width-SidePanel-open);
+    padding: 0 var(--SidePanel-width-padding-content);
+    opacity: 0;
+
+    .visible & {
+      opacity: 1;
+    }
+  }
+}

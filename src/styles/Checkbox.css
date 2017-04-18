@@ -1,0 +1,24 @@
+@import './variables.css';
+
+.Checkbox {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 1px solid var(--colors-slightlyDarkGrey);
+  background-color: var(--colors-white);
+  cursor: pointer;
+  user-select: none;
+  vertical-align: text-top;
+  transition: background-color var(--timing-extrafast) ease-out, border-color var(--timing-extrafast) ease-out;
+
+  &.checked {
+    background-color: var(--colors-selected);
+    border-color: transparent;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    background-color: var(--colors-mediumLightGrey);
+    cursor: default;
+  }
+}

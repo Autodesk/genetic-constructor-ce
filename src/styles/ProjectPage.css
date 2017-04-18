@@ -1,0 +1,27 @@
+@import 'variables.css';
+
+.ProjectPage {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-grow: 1;
+
+  /*most of the content on the project page uses overflow-y: scroll, except on chrome this requires an explicit height to work*/
+  height: calc(100vh - var(--GlobalNav-height-chrome));
+
+  &-content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 0; /* hack - flexbox will give it min-width */
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  &-constructs {
+    flex-grow: 1;
+    overflow-y: scroll;
+  }
+}

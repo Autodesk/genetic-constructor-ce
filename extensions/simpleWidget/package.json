@@ -1,0 +1,21 @@
+{
+  "name": "simpleWidget",
+  "version": "1.0.0",
+  "description": "Extension which renders basic widget into the web app",
+  "geneticConstructor": {
+    "readable": "Simple Widget",
+    "type": "(Example)",
+    "client": [
+      {
+        "file": "index.js",
+        "region": "projectDetail"
+      }
+    ]
+  },
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}

@@ -1,0 +1,48 @@
+@import './variables.css';
+
+.Inspector {
+  &-trigger {
+    background-image: url('/images/ui/inspector_icon.svg');
+  }
+}
+
+.InspectorContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: var(--colors-lighterGrey);
+  padding-bottom: 1rem;
+  width: 100%;
+
+  &Block {
+
+    &-Annotations {
+      display: block;
+    }
+
+    &-Annotation {
+      display: inline-block;
+      padding: 2px 4px;
+      margin: 2px;
+      border-radius: 2px;
+      color: var(--colors-slightlyDarkGrey);
+      background-color: var(--colors-white);
+
+      &:hover {
+
+      }
+    }
+  }
+
+  &-pickerWrap {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-section {
+    display: block;
+    background: var(--colors-lightGrey);
+    margin: 0 -var(--SidePanel-width-padding-content);
+    padding: var(--SidePanel-width-padding-content);
+  }
+}

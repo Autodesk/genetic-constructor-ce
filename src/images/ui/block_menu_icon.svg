@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="5px" height="13px" viewBox="0 0 5 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>block_menu_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-306.000000, -99.000000)" fill="#272B3C">
+            <g id="block_menu_icon" sketch:type="MSLayerGroup" transform="translate(306.000000, 99.000000)">
+                <g transform="translate(1.000000, 1.000000)" sketch:type="MSShapeGroup">
+                    <path d="M2.560659,0.43934 C3.146448,1.02513 3.146448,1.97487 2.560659,2.56066 C1.974873,3.14645 1.025127,3.14645 0.439341,2.56066 C-0.146448,1.97487 -0.146448,1.02513 0.439341,0.43934 C1.025127,-0.14645 1.974873,-0.14645 2.560659,0.43934" id="Fill-3"></path>
+                    <path d="M2.560659,4.43934 C3.146448,5.02513 3.146448,5.97487 2.560659,6.56066 C1.974873,7.14645 1.025127,7.14645 0.439341,6.56066 C-0.146448,5.97487 -0.146448,5.02513 0.439341,4.43934 C1.025127,3.85355 1.974873,3.85355 2.560659,4.43934" id="Fill-4"></path>
+                    <path d="M2.560659,8.43934 C3.146448,9.02513 3.146448,9.97487 2.560659,10.56066 C1.974873,11.14645 1.025127,11.14645 0.439341,10.56066 C-0.146448,9.97487 -0.146448,9.02513 0.439341,8.43934 C1.025127,7.85355 1.974873,7.85355 2.560659,8.43934" id="Fill-5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

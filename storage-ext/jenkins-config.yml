@@ -1,0 +1,42 @@
+service-name: gctorstorage
+environment: local
+
+# parameters used when calling cloudformation update-stack
+# NOTE set this value in the Jenkins job as it varies by environment
+cfn-stack-name: ""
+cfn-param-compose-file: docker-compose-api-quickstart.yml
+cfn-param-compose-start-params: ""
+cfn-param-compose-cmd-prefix: ""
+tmp-cfn-status: CloudStackStatus.txt
+
+verify-enabled: true
+# NOTE set this value in the Jenkins job as it varies by environment
+verify-url-full: ""
+
+version-file: ./package.json
+
+tmp-dir: node_modules/jenkins-docker/compose-tmp
+tmp-env: compose-env.txt
+tmp-images: images.txt
+
+build-ver-file: VERSION
+build-manifest-file: build-manifest.txt
+
+s3-artifacts: "*.yml"
+s3-zip-bucket: bionano-devops-build-artifacts
+zip-excludes: .archive_excludes
+zip-excludes-input-dirs: .
+
+# set false to only push a image tagged for the envrionment
+tag-latest: true
+lib-prefix: quay.io/autodesk_bionano/
+lib-push-config: --config /var/jenkins_home/.docker-config-autodesk-bionano-org
+
+build-compose-file: docker-compose.yml
+jenkins-test-compose-file: docker-compose-jenkins.yml
+
+npm-package-push: false
+npm-package-name: gctor-storage
+npm-package-s3-folder: gctor-storage/npm
+
+fake-jenkins: false # Don't change this; it's only here to be overridden by place holder Jenkins configuration

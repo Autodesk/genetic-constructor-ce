@@ -1,0 +1,55 @@
+{
+  "comment": "Register a user an upload a genbank file into a new project",
+  "config": {
+    "processor": "./helpers.js",
+    "target": "https://geneticconstructor.bionano.autodesk.com",
+    "timeout": 120,
+    "phases": [
+      {
+        "duration": 5,
+        "arrivalCount": 1
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "name": "genbank",
+      "flow": [
+        {
+          "post": {
+            "url": "/register",
+            "beforeRequest": "createUserJSON",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "json": {
+              "user": {
+                "email": "placeholderA",
+                "firstName": "placeholderB",
+                "lastName": "placeholderC",
+                "password": "123456"
+              },
+              "config": {
+                "projects": {
+                  "emptyProject" : {
+                    "default": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "think": 5
+        },
+        {
+          "post": {
+            "url": "/extensions/api/genbank/import",
+            "beforeRequest": "createGenbankUpload",
+            "headers": {}
+          }
+        }
+      ]
+    }
+  ]
+}

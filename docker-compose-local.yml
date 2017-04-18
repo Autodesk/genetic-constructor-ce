@@ -1,0 +1,21 @@
+webapp:
+  extends:
+    file: docker-compose-common.yml
+    service: webapp
+  build: .
+  links:
+    - db
+  command:
+    npm run start-instance
+  ports:
+    - "3000:3000"
+  environment:
+    PORT: 3000
+    NO_DOCKER: "true"
+    PGHOST: db
+
+db:
+  extends:
+    file: ./storage-ext/docker-compose-common.yml
+    service: db
+  build: ./storage-ext/postgres/

@@ -1,0 +1,44 @@
+@import 'variables.css';
+
+.Toggler {
+  width: 1em;
+  height: 1em;
+  padding: 3px;
+  display: inline-block;
+  vertical-align: text-top;
+  margin-right: 0.5em;
+  /*
+  background-image: url('/images/ui/disclosure_triangle_closed.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  */
+  transition: transform var(--timing-extrafast) ease-out;
+  cursor: pointer;
+
+  svg {
+    vertical-align: top;
+    g g {
+      fill: var(--colors-slightlyDarkGrey);
+    }
+
+    &:hover {
+      g g {
+        fill: var(--colors-mediumLightGrey);
+      }
+    }
+  }
+
+  &.open {
+    transform: rotate(90deg);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    svg g g,
+    svg:hover g g {
+      fill: var(--colors-mediumDarkGrey);
+    }
+  }
+}

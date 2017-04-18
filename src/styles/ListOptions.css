@@ -1,0 +1,56 @@
+@import './variables.css';
+
+.ListOptions {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-bottom: 0.5em;
+  overflow-y: scroll;
+
+  &:empty {
+    display: none;
+  }
+
+  &-explanation {
+    color: var(--colors-slightlyDarkGrey);
+    padding: 0.25em 0 0.5em;
+  }
+
+  &-toggleAll {
+    padding: 0.5em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    &-button {
+      align-self: flex-end;
+      cursor: pointer;
+      padding: 0 0.5em;
+      user-select: none;
+      transition: color var(--timing-fast) ease-out;
+
+      &.disabled {
+        color: var(--colors-slightlyDarkGrey);
+        cursor: default;
+      }
+    }
+  }
+}
+
+.CSVFileDrop {
+  padding: 1em;
+  border-radius: 0.5em;
+  background-color: var(--colors-darkerGrey);
+  text-align: center;
+  transition: background-color var(--timing-fast) ease-out;
+
+  &-hover,
+  &:hover {
+    background-color: var(--colors-mediumDarkGrey);
+    cursor: pointer;
+  }
+
+  &-reject {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+}

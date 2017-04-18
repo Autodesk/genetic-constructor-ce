@@ -1,0 +1,51 @@
+@import './variables.css';
+@import './form.css';
+
+.updown-container {
+  display: flex;
+  align-items: center;
+  height: var(--element-height);
+  margin: 0;
+  padding: 0;
+  width: auto;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .input-updown {
+    width: 10rem;
+  }
+
+  .updown-spinner {
+    display: inline-block;
+    height: 50%;
+    width: 3rem;
+
+    .arrow-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+    }
+    .updown-arrows {
+      border-left: 2px solid var(--colors-mediumLightGrey);
+      border-top: 2px solid var(--colors-mediumLightGrey);
+      width: 10px;
+      height: 10px;
+      border-radius: 0px;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .up {
+      transform: rotateZ(45deg);
+    }
+    .down {
+      transform: rotateZ(225deg);
+    }
+  }
+}

@@ -1,0 +1,1 @@
+Registers a route which runs a python script in the backgronud (performs a reverse complement using biopython), and a simple widget on the client which gets and sends a block's sequence to the router endpoint, and renders it in the project detail area.

@@ -1,0 +1,32 @@
+@import './variables.css';
+
+.userwidget {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  padding: 0 8px;
+  z-index: var(--zMenuContainer);
+
+  .signed-out {
+    color: dodgerblue;
+    pointer: cursor;
+    text-decoration: none;
+  }
+  .signed-out:hover {
+    text-decoration: underline;
+  }
+  .signed-in {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: lightgray;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}

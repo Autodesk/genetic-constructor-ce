@@ -1,0 +1,12 @@
+{
+  "name": "testErrorServer",
+  "version": "1.0.0",
+  "description": "Causes server error",
+  "geneticConstructor": {
+    "readable": "Test Server Error",
+    "type": "(Example)",
+    "router": "index.js"
+  },
+  "scripts": {},
+  "dependencies": {}
+}

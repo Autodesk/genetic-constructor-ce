@@ -1,0 +1,19 @@
+{
+  "name": "csv",
+  "version": "1.0.0",
+  "description": "Converts CSV files into Genetic Constructor Blocks",
+  "geneticConstructor": {
+    "router": "index.js"
+  },
+  "author": "Autodesk Inc.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "csv-parse": "^1.1.3",
+    "express": "^4.14.0",
+    "formidable": "^1.0.17",
+    "invariant": "^2.2.1",
+    "lodash": "^4.13.1",
+    "md5": "^2.1.0"
+  }
+}

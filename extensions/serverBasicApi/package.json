@@ -1,0 +1,17 @@
+{
+  "name": "serverBasicApi",
+  "version": "1.0.0",
+  "description": "Extension with a Basic file writing API",
+  "geneticConstructor": {
+    "readable": "Basic File API",
+    "type": "Server (Example)",
+    "router": "index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}

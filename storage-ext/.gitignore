@@ -1,0 +1,11 @@
+node_modules
+.idea
+bio-user-platform.iml
+npm-debug.log
+tmp/
+report.xml
+gctor-storage-*.tgz
+VERSION
+build-manifest.txt
+*.out*
+settings_uuids.json

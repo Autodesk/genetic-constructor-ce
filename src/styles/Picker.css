@@ -1,0 +1,140 @@
+@import 'variables.css';
+
+.Picker {
+  line-height: 0;
+  display: inline-block;
+  margin-right: 5px;
+  user-select: none;
+
+  &-current {
+    display: inline-block;
+
+    .Picker-item {
+      background-color: rgba(255,255,255,0.15);
+    }
+  }
+
+  /* hack hack hack - just positioning picker using pixels, not very smart about figuring out where it is */
+
+  &:nth-child(2) {
+    .Picker-content {
+      margin-left: -63px;
+
+      &:before,
+      &:after {
+        left: 91px;
+      }
+    }
+  }
+
+  &-content {
+    position: absolute;
+    z-index: 1; /* make stacking context so appears on top */
+    display: block;
+    width: 270px; /* todo - var */
+    background-color: var(--colors-mediumDarkGrey);
+    border: 1px solid var(--colors-lightGrey);
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 5px;
+
+    &:after,
+    &:before {
+      bottom: 100%;
+      left: 28px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(136, 183, 213, 0);
+      border-bottom-color: var(--colors-mediumDarkGrey);
+      border-width: 12px;
+      margin-left: -12px;
+    }
+    &:before {
+      border-color: rgba(194, 225, 245, 0);
+      border-bottom-color: var(--colors-lightGrey);
+      border-width: 13px;
+      margin-left: -13px;
+    }
+  }
+
+  &-currentHovered {
+    display: block;
+    text-align: center;
+    height: 1em;
+  }
+
+  &-options {
+
+  }
+
+  &-item {
+    float: left;
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin: 2px;
+    border: 2px solid transparent;
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.15);
+    background-size: contain;
+    text-align:center;
+    transition: border-color var(--timing-fast) ease-out, background-color var(--timing-fast) ease-out;
+
+    &:nth-child(4n + 1) {
+      clear: left;
+    }
+
+    &:hover {
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    &.active {
+      cursor: default;
+      border-color: white;
+    }
+
+    svg {
+      transition: opacity var(--timing-fast) ease-out;
+      opacity: 0.5;
+    }
+
+    &:hover svg {
+      opacity: 0.7;
+    }
+
+    &.active svg {
+      opacity: 1;
+    }
+
+    &.readOnly:hover {
+      border-color: transparent;
+      cursor: default;
+
+      svg {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &.readOnly {
+    .Picker-item {
+      cursor: default;
+
+      &:hover {
+        border-color: transparent;
+
+        svg {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

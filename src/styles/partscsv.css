@@ -1,0 +1,49 @@
+@import './variables.css';
+@import './form.css';
+
+
+.genbank-import-form {
+  width: 700px;
+
+  .dropzone {
+    width: 80%;
+    height: 10rem;
+    border-radius: var(--modal-radius);
+    background-color: var(--modal-inputcolor);
+    border: none;
+    margin: 1rem 0 1rem 0;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+  }
+  .dropzone-hot {
+    background-color: var(--modal-textcolor);
+  }
+  .dropzone:hover {
+    background-color: var(--modal-textcolor);
+  }
+  .dropzone-text {
+    font-size: 3rem;
+    color: white;
+    line-height: 10rem;
+    width: auto;
+  }
+  .file-name {
+    color: var(--modal-textcolor);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .file-name:last-of-type {
+    margin-bottom: 1rem;
+  }
+
+  input[type="radio"] {
+    display: inline-block;
+    width: auto;
+  }
+  .prefix-container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+}

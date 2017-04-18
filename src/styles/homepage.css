@@ -1,0 +1,168 @@
+:root {
+--footer-height: 13rem;
+--button-height: 3rem;
+--button-color: #F1E532;
+}
+
+.homepage {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  top: 0;
+
+  &-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+  }
+  &-cookie-warning {
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: calc(100% - 50px);
+    height: 50px;
+    line-height: 50px;
+    padding-left: 3rem;
+    background-color: white;
+
+    a {
+      color: #259BA8;
+      text-decoration: none;
+      font-weight: bold;
+      padding-left: 0.5rem;
+    }
+  }
+  &-cookie-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 8rem;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: var(--button-color);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  &-image-area {
+    display: block;
+    width: 100vw;
+    height: calc(100vh - var(--footer-height));
+    position: relative;
+  }
+
+  &-background {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-name {
+    position: absolute;
+    display: inline-block;
+    top: 25%;
+    left: 50%;
+    font-size: 2.5vh;
+    color: white;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    .lighter {
+      font-weight:lighter;
+    }
+
+    div {
+      display: inline-block;
+    }
+
+    * {
+      text-shadow: 0px 0px 7px rgba(0,0,0,0.25)
+    }
+  }
+
+  &-title {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    font-size: 4.5vh;
+    color: white;
+    text-align:center;
+    font-weight: lighter;
+    transform: translate(-50%, -50%);
+
+    div {
+      white-space: nowrap;
+    }
+
+    * {
+      text-shadow: 0px 0px 7px rgba(0,0,0,0.25)
+    }
+  }
+
+  &-getstarted {
+    position: absolute;;
+    top: 75%;
+    left: 50%;
+    height: var(--button-height);
+    line-height: var(--button-height);
+    border-radius: var(--button-height / 2);
+    padding: 0 6rem 0 6rem;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+    color: black;
+    background-color: var(--button-color);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  &-getstarted:hover {
+    opacity: 0.8;
+  }
+
+  &-autodesk {
+    width: 120px;
+    position: fixed;
+    top: calc(100vh - 16rem);
+    left: 3rem;
+  }
+
+  &-egf {
+    position: fixed;
+    top: calc(100vh - 16.2rem);
+    width: 224px;
+    left: 15rem;
+    opacity: 0.4;
+  }
+
+  &-footer {
+    position: fixed;
+    color: white;
+    top: calc(100% - var(--footer-height));
+    width: 100%;
+    background-color: #565B69;
+    height: var(--footer-height);
+    overflow: hidden;
+  }
+  &-footer ul {
+    list-style: none;
+    white-space: nowrap;
+  }
+  &-footer ul span {
+    margin-right: 1rem;
+  }
+  &-footer li {
+    margin-bottom: 0.25rem;
+  }
+  &-footer-list {
+    display: flex;
+    justify-content: center;
+  }
+  &-footer-title {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

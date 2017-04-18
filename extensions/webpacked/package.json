@@ -1,0 +1,23 @@
+{
+  "name": "webpacked",
+  "version": "1.0.0",
+  "description": "Example extension which uses Webpack to create a bundle.",
+  "geneticConstructor": {
+    "readable": "Webpacked Example",
+    "type": "(Example)",
+    "client": [
+      {
+        "file": "index.js",
+        "region": "projectDetail"
+      }
+    ]
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "webpack -d main.js index.js"
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.4",
+    "webpack": "^1.13.1"
+  }
+}

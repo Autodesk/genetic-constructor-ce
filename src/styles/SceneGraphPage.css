@@ -1,0 +1,155 @@
+@import "./variables.css";
+
+.sceneGraph {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: opacity 100ms ease;
+}
+.sceneGraph-dark {
+  opacity: 0.5;
+}
+
+/* base node type in scene graph*/
+.node {
+  position: absolute;
+  display: inline-block;
+  transform-origin: 0 0;
+}
+/*text overlay for nodes*/
+.nodetext {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-block;
+  transform: translate(-50%, -50%);
+  color: white;
+  user-select: none;
+  pointer-events: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: Helvetica, sans-serif;
+}
+/* base class for all glyphs */
+.glyph {
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+}
+/* svg icons in sbol blocks */
+.role-icon {
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+
+/* overlaid panel for handling mouse inputs and displaying overlaid UI affordances/glyphs */
+.scenegraph-userinterface {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  background-color: transparent;
+  cursor: default;
+
+  .scenegraph-userinterface-selection {
+    position: absolute;
+    border: 2px solid white;
+    background-color: transparent;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* edge insertion point for DND */
+  .edge-insertion-point {
+    position: absolute;
+    box-sizing: border-box;
+    height: 46px;
+    width: 6px;
+    background-color: var(--colors-selected);
+    z-index: 1;
+  }
+  /* block insertion point for DND */
+  .block-insertion-point {
+    position: absolute;
+    box-sizing: content-box;
+    border: 6px solid var(--colors-selected);
+    background-color: transparent;
+    z-index: 1;
+  }
+}
+
+.construct-viewer {
+  margin: 1rem 1rem 0 2rem;
+  width: calc(100% - 3rem);
+  background: transparent;
+  position: relative;
+
+  .lockIcon {
+    position: absolute;
+    left: -19px;
+    top: 28px;
+  }
+
+  .sceneGraphContainer {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .construct-viewer-menu {
+
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0.2;
+    transition: opacity 250ms ease;
+    height: 29px;
+
+    .link {
+      margin: 0.5rem 1rem 0 1rem;
+      padding-bottom: 0.5rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: lighter;
+    }
+    .link:hover {
+      border-bottom: 3px solid dodgerblue;
+    }
+    .link.checked {
+      border-bottom: 3px solid dodgerblue;
+    }
+    .icon {
+      transform: scale(2) translateY(2px);
+    }
+  }
+}
+.construct-viewer:last-child {
+  margin-bottom: 5rem;
+}
+.construct-viewer-menu:hover {
+  opacity: 1;
+}
+
+/*indicate an role glyph block has children, clicking toggle the associated*/
+/*nested construct*/
+.nw-triangle {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border-top-width: 12px;
+  border-top-style: solid;
+  /*border-top-color: --colors-bluegrey;*/
+  border-top-color: rgba(0, 0, 0, 0.6);
+  border-right: 12px solid transparent;
+}
+/*selected option in a list block, size is set programmatically*/
+.listSelected {
+  position: absolute;
+  border-radius: 100%;
+  background-color: #1D222D;
+}

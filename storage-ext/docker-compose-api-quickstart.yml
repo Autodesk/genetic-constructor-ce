@@ -1,0 +1,15 @@
+api:
+  extends:
+    file: docker-compose-common.yml
+    service: api
+  image: quay.io/autodesk_bionano/gctorstorage_api${BNR_ENV_TAG}
+  environment:
+    PGHOST: gctor-db${BNR_ENV_URL_SUFFIX}.bionano.bio
+  ports:
+    - "4747:4747"
+  log_driver: json-file
+  log_opt:
+    max-size: "128m"
+    max-file: "16"
+  command:
+    npm run wait-n-cluster

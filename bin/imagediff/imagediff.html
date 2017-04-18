@@ -1,0 +1,63 @@
+<html>
+
+
+<body>
+
+<style>
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: Helvetica;
+    }
+    img {
+        width: 100%;
+        border: 1px solid black;
+        margin-right: 1rem;
+    }
+    h3 {
+      text-align: center;
+      font-size: 2rem;
+      color: gray;
+    }
+
+    .grid {
+        display: flex;
+    }
+</style>
+
+<div class="grid">
+    <div>
+        <h3>Cannonical Image</h3>
+        <img id="cimage"></image>
+    </div>
+    <div>
+        <h3>Test Image</h3>
+        <img id="timage"></image>
+    </div>
+</div>
+<script>
+
+    var parseQueryString = function (queryString) {
+        var params = {}, queries, temp, i, l;
+
+        // Split into key/value pairs
+        queries = queryString.split("&amp;");
+
+        // Convert the array of strings into an object
+        for (i = 0, l = queries.length; i < l; i++) {
+            temp = queries[i].split('=');
+            params[temp[0]] = temp[1];
+        }
+
+        return params;
+    };
+
+    var params = parseQueryString(window.location.search.substr(1));
+    document.getElementById('cimage').setAttribute('src', params.image1);
+    document.getElementById('timage').setAttribute('src', params.image2);
+
+</script>
+
+</body>
+
+</html>

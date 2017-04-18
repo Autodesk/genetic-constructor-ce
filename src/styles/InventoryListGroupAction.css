@@ -1,0 +1,22 @@
+@import './variables.css';
+
+.InventoryListGroupAction {
+  flex-grow: 1;
+  text-align: right;
+  opacity: 0;
+  user-select: none;
+  transition: opacity var(--timing-fast) ease-out;
+
+  &.visible {
+    cursor: pointer;
+    opacity: 1;
+
+    &.disabled {
+      opacity: 0.5;
+
+      .InventoryListGroupAction-text {
+        cursor: default;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+api:
+  build: .
+  command:
+    npm run wait-n-server
+  environment:
+    PGHOST: db
+
+db:
+  build: ./postgres/
+  ports:
+    - "5432:5432"
+  environment:
+    POSTGRES_PASSWORD: GCTORSTORAGEMASTER
+    POSTGRES_USER: postgres

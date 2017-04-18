@@ -1,0 +1,14 @@
+@import 'variables.css';
+
+.Inventory {
+  &-trigger {
+    background-image: url('/images/ui/inventory_icon.svg');
+  }
+
+  &-groups {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+  }
+}

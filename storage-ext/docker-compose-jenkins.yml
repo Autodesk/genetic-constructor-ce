@@ -1,0 +1,22 @@
+test:
+  extends:
+    file: docker-compose-common.yml
+    service: api
+  build: .
+  links:
+    - db
+  ports:
+    - "4747:4747"
+  command:
+    npm run wait-n-jenkins
+  environment:
+    PGHOST: db
+    TEST_OUTPUT_PATH: /tmp/jenkins
+  volumes:
+    - $WORKSPACE:/tmp/jenkins
+
+db:
+  extends:
+    file: docker-compose-common.yml
+    service: db
+  build: ./postgres/

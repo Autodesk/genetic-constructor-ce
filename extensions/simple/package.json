@@ -1,0 +1,14 @@
+{
+  "name": "simple",
+  "version": "1.0.0",
+  "description": "Simple Genetic Constructor Extension Example",
+  "geneticConstructor": {
+    "type": "(Example)",
+    "client": [
+      {
+        "file": "index.js",
+        "region": null
+      }
+    ]
+  }
+}

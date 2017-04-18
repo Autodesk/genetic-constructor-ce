@@ -1,0 +1,40 @@
+@import 'variables.css';
+
+.InputSimple {
+  width: 100%;
+
+  &-input {
+    cursor: pointer;
+    background: transparent;
+    padding: 5px;
+    margin: -2px 0;
+    outline: 0;
+    border: 0;
+    border-radius: 2px;
+    width: 100%;
+    color: var(--colors-white);
+    background-color: var(--colors-darkerGrey);
+    transition: background-color linear 0.05s, color linear 0.05s;
+
+    &:focus {
+      cursor: text;
+      background: white;
+      color: var(--colors-darkerGrey);
+      background-color: white;
+    }
+  }
+
+  &.readOnly {
+    overflow: scroll;
+
+    .InputSimple-input {
+      cursor: default;
+
+      &:focus {
+        cursor: default;
+        background: inherit;
+        color: inherit;
+      }
+    }
+  }
+}

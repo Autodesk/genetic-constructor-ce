@@ -1,0 +1,102 @@
+@import 'variables.css';
+
+/**
+ * proxy item for DND operations
+ */
+.InventoryItemProxy {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  font-weight: bolder;
+  border: 2px solid white;
+  background-color: black;
+  color: white;
+  padding: 0 1rem 0 1rem;
+  cursor: pointer;
+}
+
+.InventoryItem {
+  display: block;
+  font-size: 12px;
+  cursor: default;
+  border-radius: 3px;
+
+  &.hasImage {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    .InventoryItem-text {
+      margin-left: 0.5em;
+    }
+  }
+
+  &-item {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    padding: 2px 5px;
+    margin: 1px 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &-text {
+    user-select: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-shrink: 1;
+  }
+
+  &-image {
+    display: inline-block;
+    background-size: contain;
+    margin-top: -0.25em;
+    height: 27px;
+    width: 27px;
+  }
+
+  &-detail {
+    padding-left: 0.75em;
+    opacity: 0.5;
+    flex-shrink: 0;
+    align-self: flex-start;
+    user-select: none;
+  }
+
+  &-glyph:not(:empty) {
+    flex-shrink: 0;
+    padding-right: 0.5em;
+  }
+
+  &.loading,
+  &.selected {
+    transition: background-color var(--timing-extrafast) ease-out;
+    background-color: var(--listItem-background);
+
+    .InventoryItem-text {
+      white-space: normal;
+    }
+  }
+
+  &.loading {
+    animation: softpulse 1s infinite;
+  }
+
+  &.loadError {
+    cursor: not-allowed;
+
+    .InventoryItem-text {
+      color: #ff0000;
+    }
+  }
+
+  &:hover {
+    transition: 0s;
+    background-color: var(--listItem-backgroundHover);
+    animation: none;
+  }
+}

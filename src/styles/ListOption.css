@@ -1,0 +1,71 @@
+@import 'variables.css';
+
+.ListOption {
+  display: block;
+  position: relative;
+  font-size: 12px;
+  cursor: default;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 2px 5px;
+  margin: 1px 0;
+  user-select: none;
+
+  &-check {
+    display: inline-block;
+    width: 2em;
+    opacity: 0;
+  }
+
+  &-name {
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: calc(100% - 4em);
+    vertical-align: middle;
+  }
+
+  &-delete {
+    display: inline-block;
+    position: absolute;
+    right: 0.5em;
+    padding: 0 0.5em;
+    color: var(--colors-white);
+    opacity: 0;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  &.selected {
+    color: var(--colors-selected);
+    font-weight: bold;
+
+    .ListOption-check {
+      opacity: 1;
+    }
+
+  }
+
+  &:hover {
+    background-color: var(--listItem-background);
+
+    .ListOption-delete {
+      opacity: 1;
+    }
+  }
+
+  .isFrozen > & {
+    cursor: default;
+
+    &.selected {
+      color: var(--colors-slightlyDarkGrey);
+    }
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+}

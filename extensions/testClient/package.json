@@ -1,0 +1,19 @@
+{
+  "name": "testClient",
+  "version": "1.0.0",
+  "description": "Basic extension to test client capabilities",
+  "geneticConstructor": {
+    "readable": "Test Client",
+    "type": "(Example)",
+    "client": [
+      {
+        "file": "index.js",
+        "region": "projectDetail"
+      },
+      {
+        "file": "background.js",
+        "region": null
+      }
+    ]
+  }
+}

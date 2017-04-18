@@ -1,0 +1,19 @@
+@import 'variables.css';
+
+.ProjectActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  //flex-grow: 1;
+  //align-items: flex-end;
+
+  &-action {
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 1px 5px;
+
+    &:hover {
+      background-color: var(--colors-selected);
+    }
+  }
+}

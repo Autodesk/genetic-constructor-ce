@@ -1,0 +1,14 @@
+.DS_Store
+.git
+.gitignore
+.aws
+.idea
+node_modules/
+test-deprecated/
+storage/test/*
+genome-designer-*.tgz
+genetic-constructor-*.tgz
+jenkins-docker-*.tgz
+report.xml
+eslint.xml
+server/extensions/node_modules

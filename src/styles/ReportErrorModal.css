@@ -1,0 +1,15 @@
+@import './form.css';
+
+.report-error-form {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  * {
+    width: 80%;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+  }
+
+}

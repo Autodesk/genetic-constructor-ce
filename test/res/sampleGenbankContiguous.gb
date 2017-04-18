@@ -1,0 +1,42 @@
+LOCUS       EU912544                 120 bp    DNA     circular SYN 06-FEB-2009
+DEFINITION  Cloning vector pDM313, complete sequence.
+ACCESSION   EU912544
+VERSION     EU912544.1  GI:198078160
+KEYWORDS    .
+SOURCE      Cloning vector pDM313
+  ORGANISM  Cloning vector pDM313
+            other sequences; artificial sequences; vectors.
+REFERENCE   1  (bases 1 to 120)
+  AUTHORS   Veltman,D.M., Akar,G., Bosgraaf,L. and Van Haastert,P.J.
+  TITLE     A new set of small, extrachromosomal expression vectors for
+            Dictyostelium discoideum
+  JOURNAL   Plasmid 61 (2), 110-118 (2009)
+   PUBMED   19063918
+FEATURES             Location/Qualifiers
+     source          1..120
+                     /organism="Cloning vector pDM313"
+                     /mol_type="other DNA"
+                     /db_xref="taxon:555771"
+                     /note="GFP-tag for C-terminal fusion"
+     promoter        1..40
+                     /db_xref="GI:198078161"
+     CDS             41..100
+                     /codon_start=1
+                     /transl_table=11
+                     /product="penicillin beta-lactamase"
+                     /protein_id="ACH81569.1"
+                     /db_xref="GI:198078162"
+                     /translation="MSIQHFRVALIPFFAAFCLPVFAHPETLVKVKDAEDQLGARVGY
+                     IELDLNSGKILESFRPEERFPMMSTFKVLLCGAVLSRIDAGQEQLGRRIHYSQNDLVE
+                     YSPVTEKHLTDGMTVRELCSAAITMSDNTAANLLLTTIGGPKELTAFLHNMGDHVTRL
+                     DRWEPELNEAIPNDERDTTMPVAMATTLRKLLTGELLTLASRQQLIDWMEADKVAGPL
+                     LRSALPAGWFIADKSGAGERGSRGIIAALGPDGKPSRIVVIYTTGSQATMDERNRQIA
+                     EIGASLIKHW"
+     terminator      101..110
+                     /db_xref="GI:198078162"
+     rep_origin      111..120
+                     /note="pUC ori"
+ORIGIN
+        1 actagtagtg gtaaaggaga agaacttttc actggagttg tcccaattct tgttgaatta
+       61 gatggtgatg ttaatgggca caaattttct gtcagtggag agggtgaagg tgatgcaaca
+//

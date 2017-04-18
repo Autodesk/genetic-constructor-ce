@@ -1,0 +1,227 @@
+@import './variables.css';
+@import './form.css';
+
+.order-form {
+  width: 70rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  * {
+    width: 80%;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+  }
+
+  .order-page {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 24rem;
+  }
+
+
+  .permutations {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 10rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .error {
+    color: red !important;
+  }
+
+  .dropdown-container {
+
+  }
+
+  .dropdown {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 20rem;
+
+    .selector-menu {
+      width: 20rem;
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 0;
+      display: inline-block;
+      border: 1px solid #ddd;
+      box-shadow: 2px 2px 11px -2px rgba(82,82,82,1);
+      width: auto !important;
+      background-color: white;
+      .menu-item {
+        width: 20rem;
+        white-space: nowrap;
+        padding: 0.25rem;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fontsize);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    /*remove default padding / margin from form css*/
+    * {
+       margin: 0;
+       padding: 0;
+    }
+  }
+  .row .row-checkbox {
+    display: flex;
+    align-items: center;
+    input {
+      width: 2rem;
+    }
+  }
+  .row .row-checkbox span {
+    color: var(--primarycolor);
+  }
+  .row-left {
+    text-align: right;
+    color: var(--textcolor);
+    margin: 0 1rem 0 0;
+    width: 25rem;
+  }
+  .row-right {
+    text-align: left;
+    color: var(--textcolor);
+  }
+
+  .page1 .row {
+    height: 3.5rem;
+  }
+  .page2 .preview {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .page2 .top-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .review {
+      width: 24rem;
+      margin-right: 1rem;
+    }
+    .of {
+      margin-left: 1rem;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .page2 .input-updown {
+    width: 10rem;
+    margin: 0;
+    padding: 0;
+  }
+  .page2 .container {
+    overflow: hidden;
+    position: relative;
+    height: 19rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: var(--colors-darkerGrey);
+    * {
+      border-radius: 0;
+    }
+  }
+  .page2 .scenegraph {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  .page3 .row {
+    margin-bottom: 0.5rem;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .buttons {
+    text-align: center;
+  }
+
+  .disabled {
+    pointer-events: none;
+  }
+
+  .nav-left-right {
+    width: 22rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--textcolor);
+    cursor: pointer;
+
+    &:hover {
+      background-color: whitesmoke;
+    }
+
+    .angle {
+      border-left: 2px solid var(--colors-mediumLightGrey);
+      border-top: 2px solid var(--colors-mediumLightGrey);
+      transform: rotateZ(-45deg);
+      width: 18px;
+      height: 18px;
+      border-radius: 0px;
+      margin: 0;
+      padding: 0;
+    }
+    .left {
+      transform: rotateZ(-45deg);
+    }
+    .right {
+      transform: rotateZ(135deg);
+      text-align: right;
+    }
+
+    .text {
+      font-size: var(--fontsize);
+      color: var(--colors-mediumLightGrey);
+      text-align: center;
+      line-height: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .selector-arrow {
+    border-left: 2px solid var(--colors-mediumLightGrey);
+    border-top: 2px solid var(--colors-mediumLightGrey);
+    width: 10px;
+    height: 10px;
+    border-radius: 0px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transform: rotateZ(225deg);
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    left: 10px;
+  }
+}

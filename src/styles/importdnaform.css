@@ -1,0 +1,28 @@
+@import './form.css';
+
+.importdnaform {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  * {
+    width: 80%;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+  }
+
+  textarea {
+    font-size: 1.25rem;
+    font-family:monospace;
+    border-radius: var(--radius);
+    border: 1px solid whitesmoke;
+    background-color: var(--inputcolor);
+    outline: none;
+    color: gray;
+  }
+
+  textarea:focus {
+    border: 1px solid lightgray;
+  }
+}

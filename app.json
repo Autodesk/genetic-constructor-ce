@@ -1,0 +1,30 @@
+{
+  "name": "heroku-constructor-staging",
+  "description": "Heroku deployment of Constructor, no auth",
+  "repository": "https://github.com/Autodesk/genetic-constructor",
+  "scripts": {
+  },
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "value": "false"
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.4"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

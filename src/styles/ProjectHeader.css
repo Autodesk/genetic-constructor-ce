@@ -1,0 +1,44 @@
+@import 'variables.css';
+
+.ProjectHeader {
+  display: flex;
+  flex-shrink: 0;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--colors-lightGrey);
+  cursor: pointer;
+
+  /* left side */
+  &-info {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  &-title {
+    font-size: 16px;
+    text-indent: 10px;
+  }
+
+  &-description {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    max-height: 4.25em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 4px;
+    text-indent: 10px;
+  }
+
+  /* right side */
+  &-actions {
+    align-self: center;
+  }
+
+  &-detailToggle {
+    padding: 1em;
+    cursor: pointer;
+  }
+}

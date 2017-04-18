@@ -1,0 +1,64 @@
+doctype html
+html
+  head
+    title Genetic Constructor
+    script.
+        // global variables inserted by templating on server
+        var flashedUser = {
+            email           : "#{email}",
+            userid          : "#{uuid}",
+            firstName       : "#{firstName}",
+            lastName        : "#{lastName}",
+            config          :  !{config}
+        };
+
+        var discourseDomain = "#{discourseDomain}";
+        var productionEnvironment = #{productionEnvironment}
+
+    -if (productionEnvironment)
+      // google analytics snippet
+      script.
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-63638898-3', 'auto');
+          ga('send', 'pageview');
+
+      // heap snippet production
+      script(type='text/javascript').
+        window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+        heap.load("2192548806");
+    -else
+      // dev environment heap snipper
+      script(type='text/javascript').
+        window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+        heap.load("2100323757");
+
+
+    link(href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet")
+
+  body
+
+    #root
+    //- any html/svg templates you want included verbatim
+    div(style="display: none;visibility: hidden;margin-left: -10000px;")
+      include ../images/roleSymbols/templates/null.svg
+      include ../images/roleSymbols/templates/cds.svg
+      include ../images/roleSymbols/templates/insulator.svg
+      include ../images/roleSymbols/templates/operator.svg
+      include ../images/roleSymbols/templates/originReplication.svg
+      include ../images/roleSymbols/templates/promoter.svg
+      include ../images/roleSymbols/templates/protease.svg
+      include ../images/roleSymbols/templates/proteinStability.svg
+      include ../images/roleSymbols/templates/rbs.svg
+      include ../images/roleSymbols/templates/ribonuclease.svg
+      include ../images/roleSymbols/templates/rnaStability.svg
+      include ../images/roleSymbols/templates/terminator.svg
+      include ../images/roleSymbols/templates/structural.svg
+      include ../images/roleSymbols/templates/restrictionSite.svg
+      include ../images/ui/disclosure_triangle_closed.svg
+      include ../images/ui/lock.svg
+
+    //served by webpack proxy in dev, built in bundle
+    script(src='/static/client.js')

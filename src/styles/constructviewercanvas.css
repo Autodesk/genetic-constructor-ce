@@ -1,0 +1,22 @@
+@import 'variables.css';
+
+.cvc-drop-target {
+  padding: 2rem 1rem;
+  margin: 1rem 12px 3rem 22px;
+  font-size: var(--font-size-sectionLabel);
+  font-family: var(--font-family-base);
+  border: 1px solid var(--colors-mediumDarkGrey);
+  color: var(--colors-mediumDarkGrey);
+  text-align: center;
+  transition: color var(--timing-fast) ease-in-out, background-color var(--timing-fast) ease-in-out, border-color var(--timing-fast) ease-in-out;
+  cursor: default;
+  user-select: none;
+}
+.cvc-hovered {
+  border: 1px solid var(--colors-selected);
+  background-color: var(--colors-mediumDarkGrey);
+  color: var(--colors-lightGrey);
+}
+.cvc-hidden {
+  display: none;
+}

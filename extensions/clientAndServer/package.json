@@ -1,0 +1,22 @@
+{
+  "name": "clientAndServer",
+  "version": "1.0.0",
+  "description": "Extension with both Client and Server Components",
+  "geneticConstructor": {
+    "readable": "Counter Example",
+    "type": "(Example)",
+    "router": "router.js",
+    "client": [
+      {
+        "file": "client.js",
+        "region": "projectDetail"
+      }
+    ]
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}

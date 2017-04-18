@@ -1,0 +1,86 @@
+@import '../../node_modules/normalize.css/normalize.css';
+@import 'variables.css';
+@import 'base.css';
+@import 'fonts.css';
+
+.App {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colors-darkerGrey);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.App-pageContent {
+  flex-grow: 1;
+  display: flex;
+}
+
+/**
+ * hide vertical scroll bars if possible
+ */
+.no-vertical-scroll {
+  /* IE 10+*/
+  -ms-overflow-style: none;
+  /* Firefox, probably not on newer versions */
+  overflow: -moz-scrollbars-none;
+}
+.no-vertical-scroll::-webkit-scrollbar {
+  width: 0 !important;
+  /* attempt to hide horizontal scroll bars as well */
+  height: 0 !important;
+}
+
+/**
+ * HACK, hide some crud at bottom of page, this needs
+ * to be removed once problems are resolved.
+ */
+#bp1 {
+  position: absolute;
+  left: -10000px;
+}
+
+.button {
+  font-size: var(--font-size-text);
+  border-radius: 3px;
+  padding: 0.25rem 2rem 0.25rem 2rem;
+}
+.button-primary {
+  background-color: var(--colors-nearlyBlack);
+  border: 1px solid var(--colors-nearlyBlack);
+  color: white;
+}
+.button-normal {
+  background-color: white;
+  border: 1px solid var(--colors-nearlyBlack);
+  color: var(--colors-nearlyBlack);
+}
+.button-nostyle {
+  background-color: transparent;
+  border: none;
+  outline-style: none;
+}
+.button-nostyle:hover {
+  background-color: transparent;
+  border: none;
+}
+/*during drag operations we add this to body to prevent selection*/
+.prevent-selection {
+  user-select: none !important;
+}
+.fence-element {
+  position: absolute;
+  z-index: var(--zFence);
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+//prevent SVG text selection
+svg text,
+svg text tspan {
+  user-select: none;
+}
+svg text::selection,
+svg text tspan::selection{
+  background: none;
+}

@@ -1,0 +1,17 @@
+test:
+  extends:
+    file: docker-compose-common.yml
+    service: api
+  build: .
+  links:
+    - db
+  ports:
+    - "4747:4747"
+  command:
+    npm run wait-n-test
+
+db:
+  extends:
+    file: docker-compose-common.yml
+    service: db
+  build: ./postgres/

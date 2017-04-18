@@ -1,0 +1,5 @@
+{
+  "message": "Thanks for your pull request! Tagging @reviewers for review.",
+  "userBlacklist": ["IsaacLuo"],
+  "assignToReviewer": true
+}

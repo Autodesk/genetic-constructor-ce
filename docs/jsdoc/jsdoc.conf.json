@@ -1,0 +1,29 @@
+{
+  "source": {
+    "include": [
+      "src"
+    ],
+    "exclude" : [
+      "src/util",
+      "src/components",
+      "src/containers"
+    ]
+  },
+  "plugins": [
+    "node_modules/jsdoc-babel",
+    "node_modules/jsdoc/plugins/markdown"
+  ],
+  "opts": {
+    "recurse": true,
+    "destination": "./docs/jsdoc"
+  },
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "babel": {
+    "presets": ["stage-2", "react", "es2015", "es2016"],
+    "plugins": ["transform-class-properties", "transform-decorators-legacy", "add-module-exports", "transform-runtime"],
+    "env": {}
+  }
+}

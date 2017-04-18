@@ -1,0 +1,47 @@
+sudo: required
+language: node_js
+node_js:
+- '6'
+- '4'
+python:
+- '2.7'
+env:
+  global:
+    - CXX=g++-4.8
+    - secure: VNqJ4vNBIIF8feK3drxvl44JOwRt0oN385AhvFCP1uNudsMDhxjOrTyMYSnIGnQrR5ThdL1tQ0o7v4tE1p9DeZDOh5uzlgR0tZ99zOrBhOxdKOxszwdnIjSOaH3QqS3acWsfg14lvSOD19yF8JowSZ2GqfwDMgQBb6jhr5o3D3XZHz6zwMcrsEnrayqGJVKioNoZjfPXGm4seo7tRtCJIfFqyHZJj6v0jv8KI2bUeN3MVGGueJrPv6oGVfMkaliK/LyU5P7ECaVHwdFe94oti67QVZIcP2o0CjIsVVtq/a6/Raz+jqs7G86DfUfyB1ml6EMA2VCWq2Mcw9us3pvD9aS2jqrEAIFi3E5ERBb7BC/uwtnX+ooMkkIx5Yufq8+2oOhywDZmZsekCxusdex2eoh1BmRIoREuV5TbtGFD9ftSHVKxWkKsK8JP0DxpC/p5X71146KNwB07PWeqcjgUr/O2fukmPBZ4ak0cVLsCHfgecfYkOk8nDvnTQ9DuTll7KhmIM7m848zYiFG6wxsmPn4MeFrhaWJc+GNeZUvmAxH+uNqoD7Lrs6bmY2gOjtfknkyODUZD0//ar5UleKWo6XTk2UsRRUjBUz7dywczwlmkBGasyXkB3wN8gw2ntmbTFTNz8xY99jRnekVw3P3Ge2PGi7yVc/nrL5AsaioQ3JE=
+  matrix:
+    - FORCE_LOCAL=false
+    - FORCE_LOCAL=true
+services:
+  - docker
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+#  sauce_connect:
+#    username: bionano
+#    access_key:
+#      secure: Wu6FXPOd3MbsfPzJQHr4hr7afS6r7vncyPyGJ/+bgR0U03oqqi3SxPFzd2vYqLc/ue6XIAmTEkb6Jn5OhN6GdmetF2jBjXwu5m8l2TfllM+hCEKwTc6i9QuZDVcwA6eVAH0Cwo/8aAIRKBaZI5LScepvg/V70gr3b5eWOHyhN4lvhaC4+NW4veMMXA3o/xuIN4rAr1Y0evR+qZbDRPROzo3XIYFQct9Xgl/46p/DYq4C+8ARUeIbjCAnTozf45tvuDyFqV7UiJnmcRYMmJlEK/QKNgB0URbhroC2dLO13jw2y09cDfKNjEV/fiyjvyCxy+7wVcDf5PheU3BTaVgE2DM3Tmixo/6AqTZZepGdF+MPf/R9sS4AMI/HZ8aQkaj9wGNv8CcaGktN+x8xhKlWEm+u5BMMObwI/hqRt6MHIiOdyBiAEG5hMUjR4DFfzyTd/GjY9Pr7mcfzSdhehH2taqlQobybxZ+vcap+RPDgnXoDLjA7Ohkzd8iasRnLb48U2pUPh3Km8DvLEgY+WXwxgnL7AIn46IXA5T2eSe24y+4GnpaMrITNk5X+4y4Zb2NpuGAlKZgMCUSWWP3ERxcwCnKewoOXI5n1IdjuAB83ftdsnu9CBVI8aocSibqDJNz2N2mlq2OMOePi2zWE7Wh/r+IBSxPbPU3l6W4/OjPA5gA=
+before_install:
+- if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
+#- docker build -t gctorstorage_db ./storage-ext/postgres/
+#- docker run -d -p 60914:5432 -l gctorstorage_db gctorstorage_db
+#- docker ps -a
+install:
+- npm install
+script:
+- npm run lint
+- PGPORT=60914 npm run test-coverage-report
+#- npm run start-testing &
+#- sleep 120
+#- npm run nightwatch-saucelabs
+#- pkill node
+cache:
+  directories:
+  - node_modules
+notifications:
+  email: false
+  slack:
+    secure: JOZIqZ8s4vFEtmgMYSy6TlVqIXiyjDWYhdkxIRg4SlXwcD/akuXM6Zn8S9J5kbmLcA7swZ5Z7Pu+v7Zhkq9MlJd09Dj2ROYBg9fL8biLhfte9WUK9lG/uAoNmOLeAApzhUhLRnXJR6lY7hPfUCUW5iWVWWvBbVKz6aw5MORaoasO097IHkmUZhVZdnajfZ5NFEc4EIyrZ/tn3ovR+eYg8zqdtUOsA+xY7+568bcg5gBqeY/zjTBVIrgoZ87j4/OdEQ/35v57iTQSc28O/uGBLg8c3NBxp+pvhueMWMkPyqzm4QacU0x3N3uOE2/9MZdicyW9+J99xe/19O/xrxkjrBWPDASdYIhCfhY9X/TzQmZ3xnIDR7KzW2cE5H5hrhxFnXc6hZ2hALkmA7QyV7mBnBGH09LHdDpB0yczdz+Xp42UQSCIag71dJRxDpO2FV+FRfQdrWAbFt5IVN0tll6OqX7DyI8gvo9YmjCSt5ZTWPm8YcW/GALwAD/oNt2mZSReMaRPjpzous3yLoF0++/MGJ0w4w80P3bMgoOLJX137vm4jXh0e1ZPDBTcmNK8XKZCdfljq0FPkp2ny80I+cdf6JjX3oNmcTpdrSVB4RYjosVjH/jl+pj1hBK+p4qf63BSmWLbc+uBT6k3eKPEE1g7RqmVvefPwfki8J1TO2chM2Q=

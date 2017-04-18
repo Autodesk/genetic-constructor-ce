@@ -1,0 +1,5 @@
+name,description,role,color,sequence,property_1,property_2
+P91,Promoter 91,Promoter,#e7aaa9,tggtcatggtcatggtcatggtca,Property_1_1,Property_2_1
+C11,Gene for Enzimawesome,CDS,#EFD79A,ggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtca,Property_1_2,Property_2_2
+RNA 11,Heavy Stability,Rna Stability Element,#EFD79A,ggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtcaggtca,Property_1_4,Property_2_4
+T31,Terminator low efficiency,Terminator,#6DA19C,actggtcaactggtcaactggtcaactggtcaactggtcaactggtcaactggtcaactggtca,Property_1_3,Property_2_3

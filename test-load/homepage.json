@@ -1,0 +1,23 @@
+{
+  "comment": "Test how many people can just hit the homepage.",
+  "config": {
+    "target": "https://geneticconstructor.bionano.autodesk.com",
+    "phases": [
+      {
+        "duration": 15,
+        "arrivalRate": 5
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "flow": [
+        {
+          "get": {
+            "url": "/homepage"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+@import './form.css';
+
+.authentication-form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  * {
+    width: 80%;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+  }
+
+  fieldset {
+    width: 100%;
+  }
+
+  /* classes for positioning forgot link inside the password box*/
+  .forgot-box {
+    position: relative;
+    .forgot-link {
+      position: absolute;
+      width: auto;
+      left: 326px;
+      top: -33px;
+    }
+  }
+}

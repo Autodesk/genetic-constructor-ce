@@ -1,0 +1,101 @@
+@import './variables.css';
+
+.ProjectDetail {
+  position: relative;
+  min-height: 30px;
+  flex-shrink: 0;
+  background-color: var(--colors-mediumDarkGrey);
+
+  &.visible {
+    background-color: var(--colors-white);
+  }
+
+  &-resizeHandle {
+    cursor: ns-resize;
+    height: 5px;
+    flex-shrink: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background-color: var(--colors-white);
+
+    &:hover {
+      background-color: var(--colors-lightGrey);
+    }
+
+    &.dragging {
+      background-color: var(--colors-selected);
+    }
+  }
+
+  &-heading {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    padding: 4px 10px 4px 10px;
+
+    &-close,
+    &-toggle {
+      width: var(--SidePanel-trigger-width);
+      height: var(--SidePanel-trigger-width);
+      min-width: var(--SidePanel-trigger-width);
+    }
+
+    &-toggle {
+      align-self: flex-start;
+      background-image: url('/images/ui/caret_open_light.svg');
+      cursor: pointer;
+
+      .disabled & {
+        cursor: not-allowed;
+      }
+
+      .visible & {
+        transform: rotateX(180deg);
+      }
+    }
+
+    &-extensionList {
+      flex-grow: 1;
+    }
+
+    &-extension {
+      padding: 0px 20px;
+      border-right: 1px solid var(--colors-slightlyDarkGrey);
+      color: var(--colors-mediumLightGrey);
+      cursor: pointer;
+
+      .visible & {
+        cursor: default;
+        color: var(--colors-mediumLightGrey);
+        border-color: var(--colors-mediumLightGrey);
+        cursor: pointer;
+
+        &.active {
+          color: var(--colors-nearlyBlack);
+          cursor: default;
+        }
+      }
+
+      &.disabled {
+        color: #757884;
+        cursor: not-allowed;
+      }
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    &-close {
+      align-self: flex-end;
+      background-image: url('/images/ui/close_icon_dark.svg');
+      cursor: pointer;
+    }
+  }
+
+  .disabled {
+    pointer: disabled;
+  }
+}

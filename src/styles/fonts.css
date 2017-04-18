@@ -1,0 +1,20 @@
+
+@font-face {
+  font-family: ArtifaktElementRegular;
+  src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Regular.woff);
+}
+
+@font-face {
+  font-family: ArtifaktElementLight;
+  src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Light.woff);
+}
+
+@font-face {
+  font-family: ArtifaktElementMedium;
+  src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Medium.woff);
+}
+
+@font-face {
+  font-family: ArtifaktElementBold;
+  src: url(https://cdn.web-platform.io/artifakt/release/v1.2.0/Artifakt%20Element%20Bold.woff);
+}

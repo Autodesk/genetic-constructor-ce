@@ -1,0 +1,18 @@
+<svg  id="sbol-svg-ribonuclease" width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>ribonuclease</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M6.50000001,20.5 L8.5,18.5" id="Line" stroke="#E6E6E6" stroke-linecap="square"></path>
+        <path d="M18.5,8.5 L20.5,6.50000001" id="Line-Copy-2" stroke="#E6E6E6" stroke-linecap="square"></path>
+        <path d="M18.5,20.5 L20.5,18.5" id="Line" stroke="#E6E6E6" stroke-linecap="square" transform="translate(19.500000, 19.500000) scale(-1, 1) translate(-19.500000, -19.500000) "></path>
+        <path d="M6.5,8.5 L8.5,6.5" id="Line-Copy-2" stroke="#E6E6E6" stroke-linecap="square" transform="translate(7.500000, 7.500000) scale(-1, 1) translate(-7.500000, -7.500000) "></path>
+        <g id="Group" transform="translate(11.500000, 11.500000)" stroke="#E6E6E6" stroke-linecap="square">
+            <path d="M7.94741561e-09,3.99999997 L4.00000001,-3.17892415e-08" id="Line-Copy"></path>
+            <path d="M-1.213768e-07,4 L4.00000004,2.16732365e-09" id="Line-Copy" transform="translate(2.000000, 2.000000) scale(-1, 1) translate(-2.000000, -2.000000) "></path>
+        </g>
+        <path d="M13.5,21 L13.5,18" id="Stroke-4" stroke="#E6E6E6"></path>
+        <path d="M13.5,25 L13.5,22" id="Stroke-4-Copy" stroke="#E6E6E6"></path>
+    </g>
+</svg>

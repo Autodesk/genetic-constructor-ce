@@ -1,0 +1,45 @@
+{
+  "comment": "Test how many people can just hit the homepage.",
+  "config": {
+    "processor": "./helpers.js",
+    "target": "https://geneticconstructor.bionano.autodesk.com",
+    "timeout": 120,
+    "phases": [
+      {
+        "duration": 10,
+        "arrivalCount": 2
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "name": "register",
+      "flow": [
+        {
+          "post": {
+            "url": "/register",
+            "beforeRequest": "createUserJSON",
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "json": {
+              "user": {
+                "email": "placeholderA",
+                "firstName": "placeholderB",
+                "lastName": "placeholderC",
+                "password": "123456"
+              },
+              "config": {
+                "projects": {
+                  "emptyProject" : {
+                    "default": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

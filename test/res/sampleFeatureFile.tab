@@ -1,0 +1,125 @@
+1:28 glll	GTATGGGATTTTGCTAAACAAC	primer_bind	#0000ff	#ff00ff
+1a:-96 glll	CCCTCATAGTTAGCGTAACG	primer_bind	#0000ff	#ff00ff
+2:Ac5 Forward 	ACACAAAGCCGCTCCATCAG 	primer_bind	#0000ff	#ff00ff
+3:AD Reverse 	AGATGGTGCACGATGCACAG 	primer_bind	#0000ff	#ff00ff
+4:a-Factor 	TACTATTGCCAGCATTGCTGC 	primer_bind	#0000ff	#ff00ff
+5:AOX1 Forward 	GACTGGTTCCAATTGACAAGC 	primer_bind	#0000ff	#ff00ff
+6:AOX1 Reverse 	GCAAATGGCATTCTGACATCC 	primer_bind	#0000ff	#ff00ff
+7:AS HSV Tag Primer 	ATCCTCGGGGTCTTCCG 	primer_bind	#0000ff	#ff00ff
+8:AS SoTag 18mer Primer 	GTCCATGTGCTGGCGTTC 	primer_bind	#0000ff	#ff00ff
+9:AUG1 Forward 	CAATTTACATCTTTATTTATTAACG 	primer_bind	#0000ff	#ff00ff
+10:AUG1 Reverse 	GAAGAGAAAAACATTAGTTGGC 	primer_bind	#0000ff	#ff00ff
+11:Bac Forward 	TTTTACTGTTTTCGTAACAGTTTT 	primer_bind	#0000ff	#ff00ff
+12:Bac Reverse 	CGGATTTCCTTGAAGAGAGTA 	primer_bind	#0000ff	#ff00ff
+13:Baculovirus (+15)Reverse 	ACTTCAAGGAGAATTTCC 	primer_bind	#0000ff	#ff00ff
+14:BGH Reverse 	TAGAAGGCACAGTCGAGG 	primer_bind	#0000ff	#ff00ff
+15:BK Reverse 	ACAGGAAACAGCTATGACCTTG 	primer_bind	#0000ff	#ff00ff
+16:BKRSV 	CGCCATTTGACCATTCA 	primer_bind	#0000ff	#ff00ff
+17:Bluescript KS 	TCGAGGTCGACGGTATC 	primer_bind	#0000ff	#ff00ff
+18:Bluescript SK 	CGCTCTAGAACTAGTGGATC 	primer_bind	#0000ff	#ff00ff
+19:CBDcenA 	TCAACGGCACCACCTGCA 	primer_bind	#0000ff	#ff00ff
+20:CBDcexLEAD 	TAGGTGCAACTGTTGTTCTG 	primer_bind	#0000ff	#ff00ff
+21:CBDclos 	CAACACCAGTTGTAAATCCA 	primer_bind	#0000ff	#ff00ff
+22:cI Forward 	GGATAGCGGTCAGGTGTT 	primer_bind	#0000ff	#ff00ff
+23:Cite primer 	GGGGACGTGGTTTTCCTTTG 	primer_bind	#0000ff	#ff00ff
+24:CMV Forward 	CGCAAATGGGCGGTAGGCGTG 	primer_bind	#0000ff	#ff00ff
+25:CYC1 Reverse 	GCGTGAATGTAAGCGTGAC 	primer_bind	#0000ff	#ff00ff
+26:DsbA 	CGAGTATGCTGATACAGTGA 	primer_bind	#0000ff	#ff00ff
+27:DsbC 	GAATTTCTCGACGAACACCA 	primer_bind	#0000ff	#ff00ff
+28:DsRed1-C 	AGCTGGACATCACCTCCCACAACG 	primer_bind	#0000ff	#ff00ff
+29:DsRed1-N 	GTACTGGAACTGGGGGGACAG 	primer_bind	#0000ff	#ff00ff
+30:DsRed-C 	AAGAAGCCTGTGCAGCTACCAGG 	primer_bind	#0000ff	#ff00ff
+31:DsRed-N 	CGCCTTCTATTTCAAACTCGTGCC 	primer_bind	#0000ff	#ff00ff
+32:EBV Reverse 	GTGGTTTGTCCAAACTCATC 	primer_bind	#0000ff	#ff00ff
+33:EF-1a Forward 	TCAAGCCTCAGACAGTGGTTC 	primer_bind	#0000ff	#ff00ff
+34:EGFP-C 	CATGGTCCTGCTGGAGTTCGTG 	primer_bind	#0000ff	#ff00ff
+35:EGFP-N 	CGTCGCCGTCCAGCTCGACCAG 	primer_bind	#0000ff	#ff00ff
+36:GAL1 Forward 	AATATACCTCTATACTTTAACGTC 	primer_bind	#0000ff	#ff00ff
+37:Glprimer 1 	TGTATCTTATGGTACTGTAACTG 	primer_bind	#0000ff	#ff00ff
+38:Glprimer 2 	CTTTATGTTTTTGGCGTCTTCCA 	primer_bind	#0000ff	#ff00ff
+39:gp64 promoter 	CTACTAGTAAATCAGTCACACC 	primer_bind	#0000ff	#ff00ff
+40:gp64 Signal primer 	GCGCTATTGTTTTATATGTGC 	primer_bind	#0000ff	#ff00ff
+41:IE1 promoter primer 	TGGATATTGTTTCAGTTGCAAG 	primer_bind	#0000ff	#ff00ff
+42:Lamdagt10For 	CTTTTGAGCAAGTTCAGGCCTGGTTAAG 	primer_bind	#0000ff	#ff00ff
+43:Lamdagt10Rev 	GAGGTGGCTTATGAGTATTTCTTCCAGG 	primer_bind	#0000ff	#ff00ff
+44:Lamdagt11For 	GGTGGCGACGACTCCTGGAGCCCG 	primer_bind	#0000ff	#ff00ff
+45:Lamdagt11Rev 	TTGACACCAGACCAACTGGTAATG 	primer_bind	#0000ff	#ff00ff
+46:M13/pUCR Forward 	CCCAGTCACGACGTTGTAAAACG 	primer_bind	#0000ff	#ff00ff
+47:M13/pUCR Reverse 	AGCGGATAACAATTTCACACAGGAA 	primer_bind	#0000ff	#ff00ff
+48:MT Forward 	CATCTCAGTGCAACTAAA 	primer_bind	#0000ff	#ff00ff
+49:myc-His Reverse 	ATGACCGGTATGCATATTCAG 	primer_bind	#0000ff	#ff00ff
+50:OpIE2 Forward 	CGCAACGATCTGGTAAACAC 	primer_bind	#0000ff	#ff00ff
+51:OpIE2 Reverse 	GACAATACAAACTAAGATTTAGTCAG 	primer_bind	#0000ff	#ff00ff
+52:p10 Forward 	GTATATTAATTAAAATACTATACTG 	primer_bind	#0000ff	#ff00ff
+53:pBAD Forward 	ATGCCATAGCATTTTTATCC 	primer_bind	#0000ff	#ff00ff
+54:pBAD Reverse 	GATTTAATCTGTATCAGG 	primer_bind	#0000ff	#ff00ff
+55:pCDM8 Reverse 	TAAGGTTCCTTCACAAAG 	primer_bind	#0000ff	#ff00ff
+56:pCEP Forward 	AGAGCTCGTTTAGTGAACCG 	primer_bind	#0000ff	#ff00ff
+57:pCMV Forward 	GATCCGGTACTAGAGGAACTGAAAAAC 	primer_bind	#0000ff	#ff00ff
+58:pDAB Forward 	ATGCCATAGCATTTTTATCC 	primer_bind	#0000ff	#ff00ff
+59:pET Upstream Primer 	ATGCGTCCGGCGTAGA 	primer_bind	#0000ff	#ff00ff
+60:pETBlueDOWN Primer 	GTTAAATTGCTAACGCAGTCA 	primer_bind	#0000ff	#ff00ff
+61:pETBlueUP Primer 	TCACGACGTTGTAAAACGAC 	primer_bind	#0000ff	#ff00ff
+62:pFastBac Forward 	GGATTATTCATACCGTCCCA 	primer_bind	#0000ff	#ff00ff
+63:pFastBac Reverse 	CAAATGTGGTATGGCTGATT 	primer_bind	#0000ff	#ff00ff
+64:pGAP Forward 	GTCCCTATTTCAATCAATTGAA 	primer_bind	#0000ff	#ff00ff
+65:pGENE Forward 	CTGCTATTCTGCTCAACCT 	primer_bind	#0000ff	#ff00ff
+66:pGEX 3' 	GAGCTGCATGTGTCAGAGG 	primer_bind	#0000ff	#ff00ff
+67:pGEX 5' 	GGCAAGCCACGTTTGGTG 	primer_bind	#0000ff	#ff00ff
+68:pHook Forward 	ACGGTGCATTGGAACGGAC 	primer_bind	#0000ff	#ff00ff
+69:pHook Reverse 	GATTGCGTCGCATCGACCC 	primer_bind	#0000ff	#ff00ff
+70:pHybLex/Zeo Forward 	AGGGCTGGCGGTTGGGGTTATTCGC 	primer_bind	#0000ff	#ff00ff
+71:pHybLex/Zeo Reverse 	GAGTCACTTTAAAATTTGTATACAC 	primer_bind	#0000ff	#ff00ff
+72:PinPoint Sequencing primer 	CGTGACGCGGTGGAGGGCG 	primer_bind	#0000ff	#ff00ff
+73:pJET1.2 Forward 	CGACTCACTATAGGGAGAGCGGC 	primer_bind	#0000ff	#ff00ff
+74:pJET1.2 Reverse 	AAGAACATCGATTTTCCATGGCAG 	primer_bind	#0000ff	#ff00ff
+75:pJG4-5 Forward 	GATGCCTCCTACCCTTATGATGTGCC 	primer_bind	#0000ff	#ff00ff
+76:pJG4-5 Reverse 	GGAGACTTGACCAAACCTCTGGCG 	primer_bind	#0000ff	#ff00ff
+77:Polyhedrin Forward 	AAATGATAACCATCTCGC 	primer_bind	#0000ff	#ff00ff
+78:Polyhedrin Reverse 	GTCCAAGTTTCCCTG 	primer_bind	#0000ff	#ff00ff
+79:pQE-TriSystem Forward 	GTTATTGTGCTGTCTCATC 	primer_bind	#0000ff	#ff00ff
+80:pQE-TriSystem Reverse 	TCGATCTCAGTGGTATTTGTG 	primer_bind	#0000ff	#ff00ff
+81:pREP Forward 	GCTCGATACAATAAAGCCC 	primer_bind	#0000ff	#ff00ff
+82:pRset 	CTAGTTATTGCTCAGCGGTGG 	primer_bind	#0000ff	#ff00ff
+83:pRH Forward 	CTGTCTCTATACTCCCCTATAG 	primer_bind	#0000ff	#ff00ff
+84:pRH Reverse 	CAAAATTCAATAGTTACTATCGC 	primer_bind	#0000ff	#ff00ff
+85:pRSET Reverse 	TAGTTATTGCTCAGCGGTGG 	primer_bind	#0000ff	#ff00ff
+86:pTarget Sequencing Primer 	TTACGCCAAGTTATTTAGGTGACA 	primer_bind	#0000ff	#ff00ff
+87:pTrcHis Forward 	GAGGTATATATTAATGTATCG 	primer_bind	#0000ff	#ff00ff
+88:pTrcHis Reverse 	GATTTAATCTGTATCAGG 	primer_bind	#0000ff	#ff00ff
+89:pTRE 3' 	CCACACCTCCCCCTGAAC 	primer_bind	#0000ff	#ff00ff
+90:pTRE 5' 	CGCCTGGAGACGCCATCC 	primer_bind	#0000ff	#ff00ff
+91:pTriplEx 3' 	ACTCACTATAGGGCGAATTG 	primer_bind	#0000ff	#ff00ff
+92:pTriplEx 5' 	CTCGGGAAGCGCGCCATTGTGTTGGT 	primer_bind	#0000ff	#ff00ff
+93:pUni Forward 	CTATCAACAGGTTGAACTG 	primer_bind	#0000ff	#ff00ff
+94:pUni Reverse 	CAGTCGAGGCTGATAGCGAGCT 	primer_bind	#0000ff	#ff00ff
+95:pYESTrp Forward 	GATGTTAACGATACCAGCC 	primer_bind	#0000ff	#ff00ff
+96:pYESTrp Reverse 	GCGTGAATGTAAGCGTGAC 	primer_bind	#0000ff	#ff00ff
+97:QE Promoter 	CCGAAAAGTGCCACCTG 	primer_bind	#0000ff	#ff00ff
+98:QE Reverse 	GTTCTGAGGTCATTACTGG 	primer_bind	#0000ff	#ff00ff
+99:R-20mer Primer 	CAGCTATGACCATGATTACG 	primer_bind	#0000ff	#ff00ff
+100:RsaA Reverse 	GCCGCGCCAGCGACGCGGAGGG 	primer_bind	#0000ff	#ff00ff
+101:RVprimer3 	CTAGCAAAATAGGCTGTCCC 	primer_bind	#0000ff	#ff00ff
+102:Rvprimer4 	GACGATAGTCATGCCCCGCG 	primer_bind	#0000ff	#ff00ff
+103:SeqL-A (ATTL1) 	GCGAGAGTAGGGAACTGC 	primer_bind	#0000ff	#ff00ff
+104:SeqL-B (ATTL2) 	AACATCAGAGATTTTGAGACAC 	primer_bind	#0000ff	#ff00ff
+105:STag 18mer Primer 	GAACGCCAGCACATGGAC 	primer_bind	#0000ff	#ff00ff
+106:STag Primer 	CGAACGCCAGCACATGGACA 	primer_bind	#0000ff	#ff00ff
+107:Sp6 Promoter 	GATTTAGGTGACACTATAG 	primer_bind	#0000ff	#ff00ff
+108:SV40-pArev 	CCTCTACAAATGTGGTATGG 	primer_bind	#0000ff	#ff00ff
+109:SV40-Promoter 	GCCCCTAACTCCGCCCATCC 	primer_bind	#0000ff	#ff00ff
+110:T3 Promoter 	ATTAACCCTCACTAAAGGGA 	primer_bind	#0000ff	#ff00ff
+111:T7 EEV 	ATGTCGTAATAACCCCGCCCCG 	primer_bind	#0000ff	#ff00ff
+112:T7 gene 10 Primer 	TGAGGTTGTAGAAGTTCCG 	primer_bind	#0000ff	#ff00ff
+113:T7 Promoter 	TAATACGACTCACTATAGGG 	primer_bind	#0000ff	#ff00ff
+114:T7 Reverse 	TAGTTATTGCTCAGCGGTGG 	primer_bind	#0000ff	#ff00ff
+115:T7 Terminator 	GCTAGTTATTGCTCAGCGG 	primer_bind	#0000ff	#ff00ff
+116:U6 Primer 	GGGCAGGAAGAGGGCCTAT 	primer_bind	#0000ff	#ff00ff
+117:U-19mer Primer 	GTTTTCCCAGTCACGACGT 	primer_bind	#0000ff	#ff00ff
+118:M13 Forward (-20) 	GTAAAACGACGGCCAG 	primer_bind	#0000ff	#ff00ff
+119:M13 Forward (-40) 	GTTTTCCCAGTCACGAC 	primer_bind	#0000ff	#ff00ff
+120:M13 Reverse 	CAGGAAACAGCTATGAC 	primer_bind	#0000ff	#ff00ff
+121:V5 Reverse Primer 	ACCGAGGAGAGGGTTAGGGAT 	primer_bind	#0000ff	#ff00ff
+122:VP22 Forward 	GGCCACGGCGACTCGA 	primer_bind	#0000ff	#ff00ff
+123:Xpress Forward 	TATGGCTAGCATGACTGGT 	primer_bind	#0000ff	#ff00ff
+124:VLH 	TTGTGTGGAATTGTGAGCGG	primer_bind	#0000ff	#ff00ff

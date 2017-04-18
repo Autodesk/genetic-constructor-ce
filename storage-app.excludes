@@ -1,0 +1,9 @@
+./storage-ext/build-manifest.txt
+./storage-ext/gctor-storage-*.tgz
+./storage-ext/report.xml
+./storage-ext/VERSION
+./storage-ext/npm-debug.log
+./storage-ext/node_modules
+./storage-ext/node_modules/*
+./storage-ext/node_modules/jenkins-docker/compose-tmp
+./storage-ext/node_modules/jenkins-docker/compose-tmp/*

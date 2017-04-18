@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: Schemas</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: Schemas</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Genetic Constructor uses its own format of Schema for ensuring data validatity and consistency. Schemas back scaffolding and validation of module:Models</p></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas__doc.js.html">schemas/_doc.js</a>, <a href="schemas__doc.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".AnnotationSchema"><span class="type-signature">(static) </span>AnnotationSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>An annotation on a sequence.<br>Should either have a sequence or start+end location<br>Later, we may want to make a field that notes how optimizable the sequence is. E.g. none, codon-optimize, or random sequence. It may be represented as a degenerate sequence?</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Annotation.js.html">schemas/Annotation.js</a>, <a href="schemas_Annotation.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".BlockSchema"><span class="type-signature">(static) </span>BlockSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component of a construct, or construct itself.<br>Blocks are hierarchically composable elements which make up large constructs of DNA. Hierarchy is established with the <code>components</code> field, whereby a block references its children.<br>Blocks may have a <code>sequence</code>, which is a reference to a file and associated annotations, and if so should reference their source (e.g. foundry, NCBI) whence they came.<br>Blocks can define <code>rules</code>, to which direct descendent blocks must adhere. For example, bounds to GC content, whether locations are fixed, filters for allowed blocks. The type is the key, the rule is the value (heterogeneous formats). Currently, rules only apply to direct descendents in the design canvas.<br>List Blocks allow for combinatorial logic, where multiple blocks can be associated as combinatorial <code>options</code> for this block. A block cannot be both a list block and have components.<br>In addition to sequence annotations, a block may list <code>notes</code>, which are essentially annotations that do not specifically reference the sequence.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Block.js.html">schemas/Block.js</a>, <a href="schemas_Block.js.html#line66">line 66</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".BlockSourceSchema"><span class="type-signature">(static) </span>BlockSourceSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>BlockSource denotes where a block came from. It is generally set on import / addition to the project</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_BlockSource.js.html">schemas/BlockSource.js</a>, <a href="schemas_BlockSource.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".InstanceSchema"><span class="type-signature">(static) </span>InstanceSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Instance is a parent class. These are IDed and versioned objects with an ancestry, with a dedicated metadata field.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Instance.js.html">schemas/Instance.js</a>, <a href="schemas_Instance.js.html#line46">line 46</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".MetadataSchema"><span class="type-signature">(static) </span>MetadataSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Metadata is a subfield of Instances</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Metadata.js.html">schemas/Metadata.js</a>, <a href="schemas_Metadata.js.html#line44">line 44</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".OrderParametersSchema"><span class="type-signature">(static) </span>OrderParametersSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Parameters for Order</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_OrderParameters.js.html">schemas/OrderParameters.js</a>, <a href="schemas_OrderParameters.js.html#line46">line 46</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".OrderSchema"><span class="type-signature">(static) </span>OrderSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Orders are intended / placed orders of DNA with a remote foundry.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Order.js.html">schemas/Order.js</a>, <a href="schemas_Order.js.html#line56">line 56</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".OrderStatusSchema"><span class="type-signature">(static) </span>OrderStatusSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Information about a placed order</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_OrderStatus.js.html">schemas/OrderStatus.js</a>, <a href="schemas_OrderStatus.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".ParentSchema"><span class="type-signature">(static) </span>ParentSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Parents are objects in an Instance's ancestry</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Parent.js.html">schemas/Parent.js</a>, <a href="schemas_Parent.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".ProjectSchema"><span class="type-signature">(static) </span>ProjectSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Project is the container for a body of work. It consists primarily of constructs, but also orders, settings, etc.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Project.js.html">schemas/Project.js</a>, <a href="schemas_Project.js.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".RulesSchema"><span class="type-signature">(static) </span>RulesSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Rules defining a block and its function. See the chart in Rules_notes.png</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Rules.js.html">schemas/Rules.js</a>, <a href="schemas_Rules.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".SequenceSchema"><span class="type-signature">(static) </span>SequenceSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Definition of a schema, including metadata about the schema and references to how to retrieve it.</p>
+<p>A sequence, typically of a part and a large string. Sequences are references because they are not usually loaded in the application, and may be very large, so can be loaded with their own API for defining desired regions.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_Sequence.js.html">schemas/Sequence.js</a>, <a href="schemas_Sequence.js.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".UserSchema"><span class="type-signature">(static) </span>UserSchema<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A user account</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_User.js.html">schemas/User.js</a>, <a href="schemas_User.js.html#line44">line 44</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".validators"><span class="type-signature">(static) </span>validators<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Validators are parameterized functions used to validate the correctness of some input.</p>
+<p>Validators are consumed by fields, which are in turned used by Schemas.</p>
+<p>In general, when defining a Schema you should use fields instead of validators directly. However, you may want to use these when just running validation. Note that they expect parameters.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="schemas_fields_validators.js.html">schemas/fields/validators.js</a>, <a href="schemas_fields_validators.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let validator = number({min:5});
+validator(4); //false
+validator(40); //true</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Actions.html">Actions</a></li><li><a href="module-Actions.module_Actions_Blocks.html">Actions_Blocks</a></li><li><a href="module-Actions.module_Actions_Clipboard.html">Actions_Clipboard</a></li><li><a href="module-Actions.module_Actions_Focus.html">Actions_Focus</a></li><li><a href="module-Actions.module_Actions_Inventory.html">Actions_Inventory</a></li><li><a href="module-Actions.module_Actions_Orders.html">Actions_Orders</a></li><li><a href="module-Actions.module_Actions_Projects.html">Actions_Projects</a></li><li><a href="module-Actions.module_Actions_UI.html">Actions_UI</a></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-constructor.html">constructor</a></li><li><a href="module-constructor.module_api.html">api</a></li><li><a href="module-constructor.module_extensions.html">extensions</a></li><li><a href="module-constructor.module_store.html">store</a></li><li><a href="module-Schemas.html">Schemas</a></li><li><a href="module-search.html">search</a></li><li><a href="module-Selectors.html">Selectors</a></li><li><a href="module-Selectors.module_Selectors_UI.html">Selectors_UI</a></li></ul><h3>Classes</h3><ul><li><a href="Annotation.html">Annotation</a></li><li><a href="Block.html">Block</a></li><li><a href="Immutable.html">Immutable</a></li><li><a href="Instance.html">Instance</a></li><li><a href="Order.html">Order</a></li><li><a href="Project.html">Project</a></li><li><a href="Schema.html">Schema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Aug 01 2016 16:49:10 GMT-0700 (PDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

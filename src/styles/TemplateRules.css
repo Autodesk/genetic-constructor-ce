@@ -1,0 +1,12 @@
+@import './variables.css';
+
+.TemplateRules {
+
+  &-rule {
+    padding: 2px 0;
+  }
+
+  &-name {
+    padding-left: 3px;
+  }
+}
