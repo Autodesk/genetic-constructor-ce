@@ -133,7 +133,7 @@
     "cli-color": "^1.1.0",
     "combokeys": "^2.4.4",
     "del": "^2.2.0",
-    "eslint": "^1.9.0",
+    "eslint": "^6.5.1",
     "eslint-config-airbnb": "^0.1.0",
     "eslint-plugin-react": "^3.7.1",
     "istanbul": "^1.1.0-alpha.1",
