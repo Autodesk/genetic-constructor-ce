@@ -71,7 +71,7 @@
     "lodash": "^4.5.1",
     "lodash.clonedeep": "^3.0.2",
     "lodash.debounce": "^3.1.1",
-    "lodash.merge": "^3.3.2",
+    "lodash.merge": "^4.6.2",
     "lodash.set": "^3.7.4",
     "md5": "^2.0.0",
     "mkdirp": "^0.5.1",
